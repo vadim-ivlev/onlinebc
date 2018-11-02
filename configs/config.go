@@ -9,4 +9,6 @@ const (
 
 	// TTL : time to live
 	TTL = 24 * 60 * 60
+
+	DataSourceType = "text"
 )
