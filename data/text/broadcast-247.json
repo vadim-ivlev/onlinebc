@@ -1,0 +1,776 @@
+{
+    "interval": 0,
+    "widgets": {
+        "instagram": 0,
+        "twitter": 0,
+        "facebook": 0
+    },
+    "online": {
+        "broadcast": [
+            {
+                "name": "Жеребьевка Лиги чемпионов и Лиги Европы",
+                "date": "14.12.2015",
+                "time": "14:00",
+                "info": "Трансляция завершена",
+                "uri": "http://www.rg.ru/2015/12/14/jerebjevka-online-site-anons.html",
+                "media": {
+                    "uri": ""
+                },
+                "show_date": 1,
+                "show_time": 1,
+                "diary": 0,
+                "diary_author": "",
+                "posts": [
+                    {
+                        "posts__author": "Юрий Зубко",
+                        "posts__text": "Ответим, что первые игры 1/16 финала Лиги Европы российские команды проведут в гостях. Матчи пройдут 18 и 25 февраля 2016 года. На этом мы заканчиваем нашу трансляцию! Спасибо за внимание! Счастливо! ",
+                        "posts__type": "Событие",
+                        "posts__event": 1,
+                        "posts__uri": "",
+                        "posts__date": "14.12.2015",
+                        "posts__time": "15:41",
+                        "posts__media": [],
+                        "posts__media__length": 0,
+                        "posts__answer": [],
+                        "posts__answer__length": 0,
+                        "posts__FIRST__": 1
+                    },
+                    {
+                        "posts__author": "Юрий Зубко",
+                        "posts__text": "Полный список пар 1/16 финала Лиги Европы:<br />\r\n<br />\r\n\"Валенсия\" (Испания) - \"Рапид\" (Австрия)<br />\r\n\"Фиорентина\" (Италия) - \"Тоттенхэм\" (Англия)<br />\r\n\"Боруссия\" Д (Германия) - \"Порту\" (Португалия) <br />\r\n<b>\"Фенербахче\" (Турция) - \"Локомотив\" (Россия) </b><br />\r\n\"Андерлехт\" (Бельгия) - \"Олимпиакос\" (Греция)<br />\r\n\"Митьюлланд\" (Дания) - \"Манчестер Юнайтед\" (Англия) <br />\r\n\"Аугсбург\" (Германия\") - \"Ливерпуль\" (Англия)<br />\r\n<b>\"Спарта\" Прага (Чехия) - \"Краснодар\" (Россия)</b><br />\r\n\"Галатасарай\" (Турция) - \"Лацио\" (Италия)<br />\r\n\"Сьон\" (Швейцария) - \"Брага\" (Португалия)<br />\r\n\"Шахтер\" (Украина) - \"Шаль-04\" (Германия)<br />\r\n\"Марсель\" (Франция) - \"Атлетик\" (Испания)<br />\r\n\"Севилья\" (Испания) - \"Мольде\" (Норвегия)<br />\r\n\"Спортинг\" (Португалия) - \"Байер\" (Германия)<br />\r\n\"Вильяреал\" (Испания) - \"Наполи\" (Италия)<br />\r\n\"Сент-Этьен\" (Франция) - \"Базель\" (Швейцария)",
+                        "posts__type": "Событие",
+                        "posts__event": 1,
+                        "posts__uri": "",
+                        "posts__date": "14.12.2015",
+                        "posts__time": "15:39",
+                        "posts__media": [],
+                        "posts__media__length": 0,
+                        "posts__answer": [],
+                        "posts__answer__length": 0
+                    },
+                    {
+                        "posts__author": "Юрий Зубко",
+                        "posts__text": "Швейцарский \"Базель\" встретится с французским \"Сент-Этьеном\"",
+                        "posts__type": "Событие",
+                        "posts__event": 1,
+                        "posts__uri": "",
+                        "posts__date": "14.12.2015",
+                        "posts__time": "15:30",
+                        "posts__media": [
+                            {
+                                "uri": "//cdnimg.rg.ru/i/i/online_trans/original/trans_data_id_247_1450096318.jpg",
+                                "thumb": "//cdnimg.rg.ru/i/i/online_trans/trans_data_id_247_1450096318.jpg",
+                                "source": "matchtv.ru"
+                            }
+                        ],
+                        "posts__media__length": 1,
+                        "posts__answer": [],
+                        "posts__answer__length": 0
+                    },
+                    {
+                        "posts__author": "Юрий Зубко",
+                        "posts__text": "\"Вильяреал\" из Испании сразится с \"Наполи\" из Италии! Захватывающее противостояния!",
+                        "posts__type": "Событие",
+                        "posts__event": 1,
+                        "posts__uri": "",
+                        "posts__date": "14.12.2015",
+                        "posts__time": "15:29",
+                        "posts__media": [
+                            {
+                                "uri": "//cdnimg.rg.ru/i/i/online_trans/original/trans_data_id_247_1450096304.jpg",
+                                "thumb": "//cdnimg.rg.ru/i/i/online_trans/trans_data_id_247_1450096304.jpg",
+                                "source": "matchtv.ru"
+                            }
+                        ],
+                        "posts__media__length": 1,
+                        "posts__answer": [],
+                        "posts__answer__length": 0
+                    },
+                    {
+                        "posts__author": "Юрий Зубко",
+                        "posts__text": "Португальский \"Спортинг\" сыграет с немецким \"Байером\"",
+                        "posts__type": "Событие",
+                        "posts__event": 1,
+                        "posts__uri": "",
+                        "posts__date": "14.12.2015",
+                        "posts__time": "15:28",
+                        "posts__media": [
+                            {
+                                "uri": "//cdnimg.rg.ru/i/i/online_trans/original/trans_data_id_247_1450096234.jpg",
+                                "thumb": "//cdnimg.rg.ru/i/i/online_trans/trans_data_id_247_1450096234.jpg",
+                                "source": "matchtv.ru"
+                            }
+                        ],
+                        "posts__media__length": 1,
+                        "posts__answer": [],
+                        "posts__answer__length": 0
+                    },
+                    {
+                        "posts__author": "Юрий Зубко",
+                        "posts__text": "Испанской \"Севилье\" предстоит вояж в Норвегию к \"Мольде\"",
+                        "posts__type": "Событие",
+                        "posts__event": 1,
+                        "posts__uri": "",
+                        "posts__date": "14.12.2015",
+                        "posts__time": "15:27",
+                        "posts__media": [
+                            {
+                                "uri": "//cdnimg.rg.ru/i/i/online_trans/original/trans_data_id_247_1450096200.jpg",
+                                "thumb": "//cdnimg.rg.ru/i/i/online_trans/trans_data_id_247_1450096200.jpg",
+                                "source": "matchtv.ru"
+                            }
+                        ],
+                        "posts__media__length": 1,
+                        "posts__answer": [],
+                        "posts__answer__length": 0
+                    },
+                    {
+                        "posts__author": "Юрий Зубко",
+                        "posts__text": "\"Марсель\" угодил к испанскому \"Атлетику\"",
+                        "posts__type": "Событие",
+                        "posts__event": 1,
+                        "posts__uri": "",
+                        "posts__date": "14.12.2015",
+                        "posts__time": "15:26",
+                        "posts__media": [],
+                        "posts__media__length": 0,
+                        "posts__answer": [],
+                        "posts__answer__length": 0
+                    },
+                    {
+                        "posts__author": "Юрий Зубко",
+                        "posts__text": "Донецкий \"Шахтер\" попал на немецкий \"Шальке\". Нас ждет \"шахтерское\" дерби!",
+                        "posts__type": "Событие",
+                        "posts__event": 1,
+                        "posts__uri": "",
+                        "posts__date": "14.12.2015",
+                        "posts__time": "15:25",
+                        "posts__media": [
+                            {
+                                "uri": "//cdnimg.rg.ru/i/i/online_trans/original/trans_data_id_247_1450096041.jpg",
+                                "thumb": "//cdnimg.rg.ru/i/i/online_trans/trans_data_id_247_1450096041.jpg",
+                                "source": "matchtv.ru"
+                            }
+                        ],
+                        "posts__media__length": 1,
+                        "posts__answer": [],
+                        "posts__answer__length": 0
+                    },
+                    {
+                        "posts__author": "Юрий Зубко",
+                        "posts__text": "\"Сьон\" из Швейцарии отправится в Португалию к \"Браге\"",
+                        "posts__type": "Событие",
+                        "posts__event": 1,
+                        "posts__uri": "",
+                        "posts__date": "14.12.2015",
+                        "posts__time": "15:25",
+                        "posts__media": [
+                            {
+                                "uri": "//cdnimg.rg.ru/i/i/online_trans/original/trans_data_id_247_1450096028.jpg",
+                                "thumb": "//cdnimg.rg.ru/i/i/online_trans/trans_data_id_247_1450096028.jpg",
+                                "source": "matchtv.ru"
+                            }
+                        ],
+                        "posts__media__length": 1,
+                        "posts__answer": [],
+                        "posts__answer__length": 0
+                    },
+                    {
+                        "posts__author": "Юрий Зубко",
+                        "posts__text": "Турецкий \"Галатасарай\" встретится с итальянским \"Лацио\"",
+                        "posts__type": "Событие",
+                        "posts__event": 1,
+                        "posts__uri": "",
+                        "posts__date": "14.12.2015",
+                        "posts__time": "15:24",
+                        "posts__media": [],
+                        "posts__media__length": 0,
+                        "posts__answer": [],
+                        "posts__answer__length": 0
+                    },
+                    {
+                        "posts__author": "Юрий Зубко",
+                        "posts__text": "<b>Чешская \"Спарта\" сразится с российским \"Краснодаром\". Команде Олега Кононова повезло с жеребьевкой</b>",
+                        "posts__type": "Событие",
+                        "posts__event": 1,
+                        "posts__uri": "",
+                        "posts__date": "14.12.2015",
+                        "posts__time": "15:23",
+                        "posts__media": [
+                            {
+                                "uri": "//cdnimg.rg.ru/i/i/online_trans/original/trans_data_id_247_1450095904.jpg",
+                                "thumb": "//cdnimg.rg.ru/i/i/online_trans/trans_data_id_247_1450095904.jpg",
+                                "source": "matchtv.ru"
+                            }
+                        ],
+                        "posts__media__length": 1,
+                        "posts__answer": [],
+                        "posts__answer__length": 0
+                    },
+                    {
+                        "posts__author": "Юрий Зубко",
+                        "posts__text": "Немецкий \"Аугсбург\" сыграет с английским \"Ливерпулем\". Юрген Клопп вернется в Германию!",
+                        "posts__type": "Событие",
+                        "posts__event": 1,
+                        "posts__uri": "",
+                        "posts__date": "14.12.2015",
+                        "posts__time": "15:22",
+                        "posts__media": [
+                            {
+                                "uri": "//cdnimg.rg.ru/i/i/online_trans/original/trans_data_id_247_1450095817.jpg",
+                                "thumb": "//cdnimg.rg.ru/i/i/online_trans/trans_data_id_247_1450095817.jpg",
+                                "source": "matchtv.ru"
+                            }
+                        ],
+                        "posts__media__length": 1,
+                        "posts__answer": [],
+                        "posts__answer__length": 0
+                    },
+                    {
+                        "posts__author": "Юрий Зубко",
+                        "posts__text": "Датский \"Митьюлланд\" попал на английский \"Манчестер Юнайтед\"",
+                        "posts__type": "Событие",
+                        "posts__event": 1,
+                        "posts__uri": "",
+                        "posts__date": "14.12.2015",
+                        "posts__time": "15:21",
+                        "posts__media": [
+                            {
+                                "uri": "//cdnimg.rg.ru/i/i/online_trans/original/trans_data_id_247_1450095736.jpg",
+                                "thumb": "//cdnimg.rg.ru/i/i/online_trans/trans_data_id_247_1450095736.jpg",
+                                "source": "matchtv.ru"
+                            }
+                        ],
+                        "posts__media__length": 1,
+                        "posts__answer": [],
+                        "posts__answer__length": 0
+                    },
+                    {
+                        "posts__author": "Юрий Зубко",
+                        "posts__text": "Бельгийский \"Андерлехт\" попытается обыграть греческий \"Олимпиакос\"",
+                        "posts__type": "Событие",
+                        "posts__event": 1,
+                        "posts__uri": "",
+                        "posts__date": "14.12.2015",
+                        "posts__time": "15:20",
+                        "posts__media": [
+                            {
+                                "uri": "//cdnimg.rg.ru/i/i/online_trans/original/trans_data_id_247_1450095666.jpg",
+                                "thumb": "//cdnimg.rg.ru/i/i/online_trans/trans_data_id_247_1450095666.jpg",
+                                "source": "matchtv.ru"
+                            }
+                        ],
+                        "posts__media__length": 1,
+                        "posts__answer": [],
+                        "posts__answer__length": 0
+                    },
+                    {
+                        "posts__author": "Юрий Зубко",
+                        "posts__text": "<b>Турецкому \"Фенербахче\" достался московский \"Локомотив\". Не самый приятный соперник достался железнодорожникам</b>",
+                        "posts__type": "Событие",
+                        "posts__event": 1,
+                        "posts__uri": "",
+                        "posts__date": "14.12.2015",
+                        "posts__time": "15:18",
+                        "posts__media": [
+                            {
+                                "uri": "//cdnimg.rg.ru/i/i/online_trans/original/trans_data_id_247_1450095593.jpg",
+                                "thumb": "//cdnimg.rg.ru/i/i/online_trans/trans_data_id_247_1450095593.jpg",
+                                "source": "matchtv.ru"
+                            }
+                        ],
+                        "posts__media__length": 1,
+                        "posts__answer": [],
+                        "posts__answer__length": 0
+                    },
+                    {
+                        "posts__author": "Юрий Зубко",
+                        "posts__text": "Дортмундская \"Боруссия\" встретится с португальским \"Порту\". Болельщики немецкой команды очень хотели \"Ливерпуль\"",
+                        "posts__type": "Событие",
+                        "posts__event": 1,
+                        "posts__uri": "",
+                        "posts__date": "14.12.2015",
+                        "posts__time": "15:16",
+                        "posts__media": [
+                            {
+                                "uri": "//cdnimg.rg.ru/i/i/online_trans/original/trans_data_id_247_1450095510.jpg",
+                                "thumb": "//cdnimg.rg.ru/i/i/online_trans/trans_data_id_247_1450095510.jpg",
+                                "source": "matchtv.ru"
+                            }
+                        ],
+                        "posts__media__length": 1,
+                        "posts__answer": [],
+                        "posts__answer__length": 0
+                    },
+                    {
+                        "posts__author": "Юрий Зубко",
+                        "posts__text": "Итальянская \"Фиорентина\" сыграет с английским \"Тоттенхэмом\". Интересная пара",
+                        "posts__type": "Событие",
+                        "posts__event": 1,
+                        "posts__uri": "",
+                        "posts__date": "14.12.2015",
+                        "posts__time": "15:15",
+                        "posts__media": [
+                            {
+                                "uri": "//cdnimg.rg.ru/i/i/online_trans/original/trans_data_id_247_1450095408.jpg",
+                                "thumb": "//cdnimg.rg.ru/i/i/online_trans/trans_data_id_247_1450095408.jpg",
+                                "source": "matchtv.ru"
+                            }
+                        ],
+                        "posts__media__length": 1,
+                        "posts__answer": [],
+                        "posts__answer__length": 0
+                    },
+                    {
+                        "posts__author": "Юрий Зубко",
+                        "posts__text": "Испанская \"Валенсия\" сразится с венским \"Рапидом\"",
+                        "posts__type": "Событие",
+                        "posts__event": 1,
+                        "posts__uri": "",
+                        "posts__date": "14.12.2015",
+                        "posts__time": "15:14",
+                        "posts__media": [
+                            {
+                                "uri": "//cdnimg.rg.ru/i/i/online_trans/original/trans_data_id_247_1450095349.jpg",
+                                "thumb": "//cdnimg.rg.ru/i/i/online_trans/trans_data_id_247_1450095349.jpg",
+                                "source": "matchtv.ru"
+                            }
+                        ],
+                        "posts__media__length": 1,
+                        "posts__answer": [],
+                        "posts__answer__length": 0
+                    },
+                    {
+                        "posts__author": "Юрий Зубко",
+                        "posts__text": "Приступаем к самому главному - определению пар 1/16 финала Лиги Европы",
+                        "posts__type": "Событие",
+                        "posts__event": 1,
+                        "posts__uri": "",
+                        "posts__date": "14.12.2015",
+                        "posts__time": "15:14",
+                        "posts__media": [],
+                        "posts__media__length": 0,
+                        "posts__answer": [],
+                        "posts__answer__length": 0
+                    },
+                    {
+                        "posts__author": "Юрий Зубко",
+                        "posts__text": "Отметим, что больше всех представителей в Лиге Европы у Германии и Испании (по четыре клуба)",
+                        "posts__type": "Событие",
+                        "posts__event": 1,
+                        "posts__uri": "",
+                        "posts__date": "14.12.2015",
+                        "posts__time": "15:09",
+                        "posts__media": [],
+                        "posts__media__length": 0,
+                        "posts__answer": [],
+                        "posts__answer__length": 0
+                    },
+                    {
+                        "posts__author": "Юрий Зубко",
+                        "posts__text": "Швейцарец Александр Фрай будет помогать Инфантино проводить церемонию",
+                        "posts__type": "Событие",
+                        "posts__event": 1,
+                        "posts__uri": "",
+                        "posts__date": "14.12.2015",
+                        "posts__time": "15:05",
+                        "posts__media": [
+                            {
+                                "uri": "//cdnimg.rg.ru/i/i/online_trans/original/trans_data_id_247_1450094932.jpg",
+                                "thumb": "//cdnimg.rg.ru/i/i/online_trans/trans_data_id_247_1450094932.jpg",
+                                "source": "matchtv.ru"
+                            }
+                        ],
+                        "posts__media__length": 1,
+                        "posts__answer": [],
+                        "posts__answer__length": 0
+                    },
+                    {
+                        "posts__author": "Юрий Зубко",
+                        "posts__text": "Он вновь объясняет процедуру жеребьевки. На стадии 1/16 финала не могут встретиться команды из одной страны, разведены клубы из России и Украины",
+                        "posts__type": "Событие",
+                        "posts__event": 1,
+                        "posts__uri": "",
+                        "posts__date": "14.12.2015",
+                        "posts__time": "15:02",
+                        "posts__media": [
+                            {
+                                "uri": "//cdnimg.rg.ru/i/i/online_trans/original/trans_data_id_247_1450094779.jpg",
+                                "thumb": "//cdnimg.rg.ru/i/i/online_trans/trans_data_id_247_1450094779.jpg",
+                                "source": "matchtv.ru"
+                            }
+                        ],
+                        "posts__media__length": 1,
+                        "posts__answer": [],
+                        "posts__answer__length": 0
+                    },
+                    {
+                        "posts__author": "Юрий Зубко",
+                        "posts__text": "Генеральный секретарь УЕФА Джанни Инфантино вновь на сцене",
+                        "posts__type": "Событие",
+                        "posts__event": 1,
+                        "posts__uri": "",
+                        "posts__date": "14.12.2015",
+                        "posts__time": "15:00",
+                        "posts__media": [],
+                        "posts__media__length": 0,
+                        "posts__answer": [],
+                        "posts__answer__length": 0
+                    },
+                    {
+                        "posts__author": "Юрий Зубко",
+                        "posts__text": "Напомним, что \"Краснодар\" и \"Локомотив\" заняли первые места в своих группах и попали в число сеяных. Наши команды точно не сыграют с \"Ливерпулем\", \"Наполи\", \"МЮ\", \"Байером\"",
+                        "posts__type": "Событие",
+                        "posts__event": 1,
+                        "posts__uri": "",
+                        "posts__date": "14.12.2015",
+                        "posts__time": "14:56",
+                        "posts__media": [],
+                        "posts__media__length": 0,
+                        "posts__answer": [],
+                        "posts__answer__length": 0
+                    },
+                    {
+                        "posts__author": "Юрий Зубко",
+                        "posts__text": "Стоит отметить, что \"Наполи\" стал самой результативной командой группового этапа Лиги Европы, по ходу которого наколотил 22 мяча. Неаполитанцы побили рекорд \"Зальцбурга\" (18), установленный в прошлом сезоне. Ни одной другой команде не удалось достичь отметки в 18 голов за один групповой этап, сообщает сайт УЕФА",
+                        "posts__type": "Событие",
+                        "posts__event": 1,
+                        "posts__uri": "",
+                        "posts__date": "14.12.2015",
+                        "posts__time": "14:45",
+                        "posts__media": [],
+                        "posts__media__length": 0,
+                        "posts__answer": [],
+                        "posts__answer__length": 0
+                    },
+                    {
+                        "posts__author": "Юрий Зубко",
+                        "posts__text": "На этом мы не завершаем нашу трансляцию. Через полчаса соперников узнают российские команды, которые выступают в Лиге Европы. Оставайтесь с нами!",
+                        "posts__type": "Событие",
+                        "posts__event": 1,
+                        "posts__uri": "",
+                        "posts__date": "14.12.2015",
+                        "posts__time": "14:30",
+                        "posts__media": [],
+                        "posts__media__length": 0,
+                        "posts__answer": [],
+                        "posts__answer__length": 0
+                    },
+                    {
+                        "posts__author": "Юрий Зубко",
+                        "posts__text": "Подведем итоги жеребьевки 1/8 финала Лиги чемпионов. Вот все пары: <br />\r\n<br />\r\n\"Гент\" (Бельгия) - \"Вольфсбург\" (Германия)<br />\r\n\"Рома\" (Италия) - \"Реал\" (Испания)<br />\r\nПСЖ (Франция) - \"Челси\" (Англия)<br />\r\n\"Арсенал\" (Англия) - \"Барселона\" (Испания)<br />\r\n\"Ювентус\" (Италия) - \"Бавария\" (Германия)<br />\r\nПСВ (Нидерланды) - \"Атлетико\" (Испания)<br />\r\n<b>\"Бенфика\" (Португалия) - \"Зенит\" (Россия)</b><br />\r\n\"Динамо\" К (Украина) - \"Манчестер Сити (Англия)<br />\r\n<br />\r\nПервый матч 1/8 финала (16/17 или 23/24 февраля) питерцы проведут на выезде, а ответный (8/9 или 15/16 марта) - на своем поле. Добавим, что жеребьевка четвертьфинальной стадии пройдет 18 марта, а полуфинальные пары путем жребия станут известны 15 апреля. ",
+                        "posts__type": "Событие",
+                        "posts__event": 1,
+                        "posts__uri": "",
+                        "posts__date": "14.12.2015",
+                        "posts__time": "14:24",
+                        "posts__media": [],
+                        "posts__media__length": 0,
+                        "posts__answer": [],
+                        "posts__answer__length": 0
+                    },
+                    {
+                        "posts__author": "Юрий Зубко",
+                        "posts__text": "А вот киевское \"Динамо\" сыграет с английским \"Манчестер Сити\"!",
+                        "posts__type": "Событие",
+                        "posts__event": 1,
+                        "posts__uri": "",
+                        "posts__date": "14.12.2015",
+                        "posts__time": "14:19",
+                        "posts__media": [],
+                        "posts__media__length": 0,
+                        "posts__answer": [],
+                        "posts__answer__length": 0
+                    },
+                    {
+                        "posts__author": "Юрий Зубко",
+                        "posts__text": "<b>Португальской \"Бенфике\" достался российский \"Зенит\"! Вновь повезло с жеребьевкой подопечным Андре-Виллаш-Боаша</b>",
+                        "posts__type": "Событие",
+                        "posts__event": 1,
+                        "posts__uri": "",
+                        "posts__date": "14.12.2015",
+                        "posts__time": "14:18",
+                        "posts__media": [
+                            {
+                                "uri": "//cdnimg.rg.ru/i/i/online_trans/original/trans_data_id_247_1450091993.jpg",
+                                "thumb": "//cdnimg.rg.ru/i/i/online_trans/trans_data_id_247_1450091993.jpg",
+                                "source": "matchtv.ru"
+                            }
+                        ],
+                        "posts__media__length": 1,
+                        "posts__answer": [],
+                        "posts__answer__length": 0
+                    },
+                    {
+                        "posts__author": "Юрий Зубко",
+                        "posts__text": "Голландский ПСВ попал на \"Атлетико\"",
+                        "posts__type": "Событие",
+                        "posts__event": 1,
+                        "posts__uri": "",
+                        "posts__date": "14.12.2015",
+                        "posts__time": "14:17",
+                        "posts__media": [],
+                        "posts__media__length": 0,
+                        "posts__answer": [],
+                        "posts__answer__length": 0
+                    },
+                    {
+                        "posts__author": "Юрий Зубко",
+                        "posts__text": "Туринский \"Ювентус\" сыграет с немецкой \"Баварией\"!  Тяжело будет итальянцам",
+                        "posts__type": "Событие",
+                        "posts__event": 1,
+                        "posts__uri": "",
+                        "posts__date": "14.12.2015",
+                        "posts__time": "14:17",
+                        "posts__media": [],
+                        "posts__media__length": 0,
+                        "posts__answer": [],
+                        "posts__answer__length": 0
+                    },
+                    {
+                        "posts__author": "Юрий Зубко",
+                        "posts__text": "Лондонский \"Арсенал\" попытается обыграть каталонскую \"Барселону\"! Отличная пара",
+                        "posts__type": "Событие",
+                        "posts__event": 1,
+                        "posts__uri": "",
+                        "posts__date": "14.12.2015",
+                        "posts__time": "14:16",
+                        "posts__media": [
+                            {
+                                "uri": "//cdnimg.rg.ru/i/i/online_trans/original/trans_data_id_247_1450091832.jpg",
+                                "thumb": "//cdnimg.rg.ru/i/i/online_trans/trans_data_id_247_1450091832.jpg",
+                                "source": "matchtv.ru"
+                            }
+                        ],
+                        "posts__media__length": 1,
+                        "posts__answer": [],
+                        "posts__answer__length": 0
+                    },
+                    {
+                        "posts__author": "Юрий Зубко",
+                        "posts__text": "ПСЖ с \"Челси\". Это уже классика Лиги чемпионов. Третий сезон подряд встретятся эти команды!",
+                        "posts__type": "Событие",
+                        "posts__event": 1,
+                        "posts__uri": "",
+                        "posts__date": "14.12.2015",
+                        "posts__time": "14:15",
+                        "posts__media": [
+                            {
+                                "uri": "//cdnimg.rg.ru/i/i/online_trans/original/trans_data_id_247_1450091760.jpg",
+                                "thumb": "//cdnimg.rg.ru/i/i/online_trans/trans_data_id_247_1450091760.jpg",
+                                "source": "matchtv.ru"
+                            }
+                        ],
+                        "posts__media__length": 1,
+                        "posts__answer": [],
+                        "posts__answer__length": 0
+                    },
+                    {
+                        "posts__author": "Юрий Зубко",
+                        "posts__text": "Итальянская \"Рома\" сыграет с мадридским \"Реалом\"!",
+                        "posts__type": "Событие",
+                        "posts__event": 1,
+                        "posts__uri": "",
+                        "posts__date": "14.12.2015",
+                        "posts__time": "14:13",
+                        "posts__media": [
+                            {
+                                "uri": "//cdnimg.rg.ru/i/i/online_trans/original/trans_data_id_247_1450091749.jpg",
+                                "thumb": "//cdnimg.rg.ru/i/i/online_trans/trans_data_id_247_1450091749.jpg",
+                                "source": "matchtv.ru"
+                            }
+                        ],
+                        "posts__media__length": 1,
+                        "posts__answer": [],
+                        "posts__answer__length": 0
+                    },
+                    {
+                        "posts__author": "Юрий Зубко",
+                        "posts__text": "Первая пара: \"Гент\" - \"Вольфсбург\"",
+                        "posts__type": "Событие",
+                        "posts__event": 1,
+                        "posts__uri": "",
+                        "posts__date": "14.12.2015",
+                        "posts__time": "14:13",
+                        "posts__media": [
+                            {
+                                "uri": "//cdnimg.rg.ru/i/i/online_trans/original/trans_data_id_247_1450091662.jpg",
+                                "thumb": "//cdnimg.rg.ru/i/i/online_trans/trans_data_id_247_1450091662.jpg",
+                                "source": "matchtv.ru"
+                            }
+                        ],
+                        "posts__media__length": 1,
+                        "posts__answer": [],
+                        "posts__answer__length": 0
+                    },
+                    {
+                        "posts__author": "Юрий Зубко",
+                        "posts__text": "Пошли в ход шарики с названием команд",
+                        "posts__type": "Событие",
+                        "posts__event": 1,
+                        "posts__uri": "",
+                        "posts__date": "14.12.2015",
+                        "posts__time": "14:12",
+                        "posts__media": [],
+                        "posts__media__length": 0,
+                        "posts__answer": [],
+                        "posts__answer__length": 0
+                    },
+                    {
+                        "posts__author": "Юрий Зубко",
+                        "posts__text": "Знаменитый футболист Хавьер Дзанетти и директор УЕФА по проведению соревнований Джорджио Маркетти присоединились к Инфантино. До этого показали нам лучшие голы участников 1/8 финала в групповой стадии Лиги чемпионов",
+                        "posts__type": "Событие",
+                        "posts__event": 1,
+                        "posts__uri": "",
+                        "posts__date": "14.12.2015",
+                        "posts__time": "14:08",
+                        "posts__media": [
+                            {
+                                "uri": "//cdnimg.rg.ru/i/i/online_trans/original/trans_data_id_247_1450091555.jpg",
+                                "thumb": "//cdnimg.rg.ru/i/i/online_trans/trans_data_id_247_1450091555.jpg",
+                                "source": "matchtv.ru"
+                            }
+                        ],
+                        "posts__media__length": 1,
+                        "posts__answer": [],
+                        "posts__answer__length": 0
+                    },
+                    {
+                        "posts__author": "Юрий Зубко",
+                        "posts__text": "Джанни Инфантино начал рассказывать о регламенте жеребьевки",
+                        "posts__type": "Событие",
+                        "posts__event": 1,
+                        "posts__uri": "",
+                        "posts__date": "14.12.2015",
+                        "posts__time": "14:04",
+                        "posts__media": [],
+                        "posts__media__length": 0,
+                        "posts__answer": [],
+                        "posts__answer__length": 0
+                    },
+                    {
+                        "posts__author": "Юрий Зубко",
+                        "posts__text": "Генеральный секретарь УЕФА Джанни Инфантино уже не сцене! Начинаем!",
+                        "posts__type": "Событие",
+                        "posts__event": 1,
+                        "posts__uri": "",
+                        "posts__date": "14.12.2015",
+                        "posts__time": "14:00",
+                        "posts__media": [
+                            {
+                                "uri": "//cdnimg.rg.ru/i/i/online_trans/original/trans_data_id_247_1450091020.jpg",
+                                "thumb": "//cdnimg.rg.ru/i/i/online_trans/trans_data_id_247_1450091020.jpg",
+                                "source": "matchtv.ru"
+                            }
+                        ],
+                        "posts__media__length": 1,
+                        "posts__answer": [],
+                        "posts__answer__length": 0
+                    },
+                    {
+                        "posts__author": "Юрий Зубко",
+                        "posts__text": "А наставник \"Баварии\" Хосеп Гвардиола так прокомментировал сегодняшнюю церемонию: \"Мое единственное желание перед жеребьевкой - чтобы в матчах 1/8 финала все мои игроки были здоровы\"",
+                        "posts__type": "Событие",
+                        "posts__event": 1,
+                        "posts__uri": "",
+                        "posts__date": "14.12.2015",
+                        "posts__time": "13:55",
+                        "posts__media": [],
+                        "posts__media__length": 0,
+                        "posts__answer": [],
+                        "posts__answer__length": 0
+                    },
+                    {
+                        "posts__author": "Юрий Зубко",
+                        "posts__text": "Вратарь \"Зенита\" Юрий Лодыгин признался, что в 1/8 Лиги чемпионов в соперники хотел бы получить \"Ювентус\". <br />\r\n<br />\r\n\"Хотелось бы сыграть с \"Ювентусом\". Это с детства одна из моих любимых команд. Из-за Зидана, и только из-за него. Буффон моим кумиром никогда не был, хотя отношусь к нему с большим уважением. Итальянцы традиционно хорошо играют от обороны, но \"Юве\" все же отличается в этом плане от остальных команд серии А.<br />\r\n<br />\r\nДа, есть варианты с \"Бенфикой\" или ПСВ. При всем уважении, в прошлом году мы голландцев просто \"раскатали\". Очень уверенная была игра\", - цитирует Лодыгина \"Спорт-экспресс\".",
+                        "posts__type": "Событие",
+                        "posts__event": 1,
+                        "posts__uri": "",
+                        "posts__date": "14.12.2015",
+                        "posts__time": "13:51",
+                        "posts__media": [
+                            {
+                                "uri": "//cdnimg.rg.ru/i/i/online_trans/original/trans_data_id_247_1450091209.jpg",
+                                "thumb": "//cdnimg.rg.ru/i/i/online_trans/trans_data_id_247_1450091209.jpg",
+                                "source": "Игорь Руссак/РИА Новости"
+                            }
+                        ],
+                        "posts__media__length": 1,
+                        "posts__answer": [],
+                        "posts__answer__length": 0
+                    },
+                    {
+                        "posts__author": "Юрий Зубко",
+                        "posts__text": "Одной победы не хватило \"Зениту\", чтобы стать седьмым коллективом (одним из них был московский \"Спартак\"), выигравшим все матчи на групповом этапе . В заключительном туре подопечных Андре Виллаш-Боаша остановил \"Гент\"",
+                        "posts__type": "Событие",
+                        "posts__event": 1,
+                        "posts__uri": "",
+                        "posts__date": "14.12.2015",
+                        "posts__time": "13:45",
+                        "posts__media": [],
+                        "posts__media__length": 0,
+                        "posts__answer": [],
+                        "posts__answer__length": 0
+                    },
+                    {
+                        "posts__author": "Юрий Зубко",
+                        "posts__text": "Отметим, что Криштиану Роналду четырежды становился лучшим бомбардиром Лиги чемпионов - в сезонах 2007/08 (8 голов), 2012/13 (12), 2013/14 (17, рекорд турнира) и 2014/15 (10). В последнем розыгрыше он разделил звание лучшего снайпера с Лионелем Месси и Неймаром, напоминает нам официальный сайт УЕФА",
+                        "posts__type": "Событие",
+                        "posts__event": 1,
+                        "posts__uri": "",
+                        "posts__date": "14.12.2015",
+                        "posts__time": "13:38",
+                        "posts__media": [],
+                        "posts__media__length": 0,
+                        "posts__answer": [],
+                        "posts__answer__length": 0
+                    },
+                    {
+                        "posts__author": "Юрий Зубко",
+                        "posts__text": "До начала церемонии осталось полчаса. Самое время вспомнить групповой этап турнира. Отличившись 11 раз, Криштиану Роналду установил рекорд результативности группового этапа турнира. При этом четыре мяча португалец забил в матче с \"Мальме\", хет-трик оформил в игре с \"Шахтером\"",
+                        "posts__type": "Событие",
+                        "posts__event": 1,
+                        "posts__uri": "",
+                        "posts__date": "14.12.2015",
+                        "posts__time": "13:30",
+                        "posts__media": [],
+                        "posts__media__length": 0,
+                        "posts__answer": [],
+                        "posts__answer__length": 0
+                    },
+                    {
+                        "posts__author": "Юрий Зубко",
+                        "posts__text": "Первые матчи 1/8 финала Лиги чемпионов (16/17 и 23/24 февраля) победители групп проведут в гостях, ответные (8/9 и 15/16 марта) - дома",
+                        "posts__type": "Событие",
+                        "posts__event": 1,
+                        "posts__uri": "",
+                        "posts__date": "14.12.2015",
+                        "posts__time": "13:20",
+                        "posts__media": [],
+                        "posts__media__length": 0,
+                        "posts__answer": [],
+                        "posts__answer__length": 0
+                    },
+                    {
+                        "posts__author": "Юрий Зубко",
+                        "posts__text": "Здравствуйте, дорогие болельщики! Начинаем нашу трансляцию! Сегодня российские клубы узнают соперников в европейских клубных турнирах. Начало жеребьевки Лиги чемпионов - в 14:00, Лиги Европы - в 15:00 по московскому времени",
+                        "posts__type": "Событие",
+                        "posts__event": 1,
+                        "posts__uri": "",
+                        "posts__date": "14.12.2015",
+                        "posts__time": "13:15",
+                        "posts__media": [],
+                        "posts__media__length": 0,
+                        "posts__answer": [],
+                        "posts__answer__length": 0,
+                        "posts__LAST__": 1
+                    }
+                ],
+                "posts__length": 46
+            }
+        ],
+        "broadcast__length": 1,
+        "broadcast__id": 247,
+        "broadcast__completed": 1
+    }
+}
