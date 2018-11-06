@@ -1,12 +1,14 @@
 package models
 
 import (
-	"strconv"
-	"time"
-	"net/http"
-	"io/ioutil"
 	"database/sql"
 	"fmt"
+	"io/ioutil"
+	"net/http"
+	"strconv"
+	"time"
+
+	// "fmt"
 	"onlinebc/services/utils"
 	// blank import
 	_ "github.com/go-sql-driver/mysql"
@@ -26,20 +28,20 @@ func ImportData(maxNumber int) {
 	results, err := db.Query("SELECT id_trans FROM online_trans_list")
 	utils.PanicIf(err)
 
-	counter:=1
+	counter := 1
 	for results.Next() {
-		if counter >maxNumber {
+		if counter > maxNumber {
 			break
 		}
 		var id int
 		err = results.Scan(&id)
 		utils.PanicIf(err)
-		json:=getJson(id)
+		json := []byte(getJson(id))
 
 		counter++
 
-		println(json[0:120])
-
+		// println(json)
+		fmt.Printf("%s", json)
 		time.Sleep(1 * time.Second)
 	}
 }
@@ -55,11 +57,10 @@ func getJson(id int) string {
 	return string(body)
 }
 
+func CreateDatabase() {
 
-func CreateDatabase()  {
-	
 }
 
-func RestoreFromDump()  {
-	
+func RestoreFromDump() {
+
 }
