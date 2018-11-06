@@ -1,9 +1,11 @@
 package models
 
 import (
-    "fmt"
-    "database/sql"
-    _ "github.com/go-sql-driver/mysql"
+	// s"fmt"
+	"database/sql"
+	"log"
+
+	_ "github.com/go-sql-driver/mysql"
 )
 
 type Tag struct {
@@ -11,7 +13,7 @@ type Tag struct {
 	Name string `json:"name"`
 }
 
-func GetBroadcastJsonText_MySql(id string) string  {
+func GetBroadcastJsonText_MySql(id string) string {
 	// Open up our database connection.
 	db, err := sql.Open("mysql", "root:pass1@tcp(127.0.0.1:3306)/tuts")
 
@@ -34,7 +36,7 @@ func GetBroadcastJsonText_MySql(id string) string  {
 		if err != nil {
 			panic(err.Error()) // proper error handling instead of panic in your app
 		}
-                // and then print out the tag's Name attribute
+		// and then print out the tag's Name attribute
 		log.Printf(tag.Name)
 	}
 	jsonText := "{}"

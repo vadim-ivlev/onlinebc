@@ -14,9 +14,11 @@ Current PHP endpoints (2018.11.02):
 */
 
 import (
+	"flag"
 	"fmt"
 	"onlinebc/configs"
 	"onlinebc/routers"
+	"os"
 )
 
 const msg = `
@@ -37,6 +39,15 @@ CTRL-C to terminate
 // Print a greeting message
 // and start serving routes
 func main() {
+
+	importData := flag.Bool("import-data", false, "import data from current PHP app")
+	flag.Parse()
+
+	if *importData {
+		println("import")
+		os.Exit(0)
+	}
+
 	fmt.Printf(msg, configs.Port, configs.Port, configs.Port)
 	routers.Serve()
 }
