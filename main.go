@@ -17,6 +17,7 @@ import (
 	"flag"
 	"fmt"
 	"onlinebc/configs"
+	"onlinebc/models"
 	"onlinebc/routers"
 	"os"
 )
@@ -40,11 +41,12 @@ CTRL-C to terminate
 // and start serving routes
 func main() {
 
-	importData := flag.Bool("import-data", false, "import data from current PHP app")
+	isImporting := flag.Bool("import-data", false, "import data from the current app")
 	flag.Parse()
 
-	if *importData {
-		println("import")
+	if *isImporting {
+		println("importing data")
+		models.ImportData(3)
 		os.Exit(0)
 	}
 

@@ -12,7 +12,7 @@
             // "program": "${fileDirname}",
             "program": "${workspaceRoot}",
             "env": {},
-            "args": []
+            "args": ["-import-data"]
         }
     ]
 }
