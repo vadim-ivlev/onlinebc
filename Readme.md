@@ -30,6 +30,25 @@ CTRL-C to terminate
 
 configs/config.db.yml - should be placed by sysadmin. 
 
+## database
+
+
+start postgresql
+	
+	docker-compose up -d
+
+
+
+restore database
+
+	docker-compose exec db psql -U root -1 -v -q -d postgres -f /dumps/online1.sql
+
+
+
+db command line
+
+	docker-compose exec db psql -U root onlinebc
+
 
 ## implementation
 

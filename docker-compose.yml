@@ -11,6 +11,8 @@ services:
       - 5432:5432
     volumes:
       - "./pgdata:/var/lib/postgresql/data/pgdata"
+      - "./data/dumps:/dumps"
+      - "./etc/.pgpass:/root/.pgpass"
     environment:
       POSTGRES_USER: root
       POSTGRES_PASSWORD: root
