@@ -46,7 +46,7 @@ func main() {
 
 	if *isImporting {
 		println("importing data")
-		models.ImportData(1)
+		models.ImportData(500)
 		os.Exit(0)
 	}
 

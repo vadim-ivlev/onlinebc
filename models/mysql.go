@@ -1,44 +1,40 @@
 package models
 
 import (
-	// s"fmt"
 	"database/sql"
-	"log"
-
+	// blank import
 	_ "github.com/go-sql-driver/mysql"
+
+	//blank import
+	_ "github.com/lib/pq"
+
 )
 
-type Tag struct {
-	ID   int    `json:"id"`
-	Name string `json:"name"`
-}
-
-func GetBroadcastJsonText_MySql(id string) string {
-	// Open up our database connection.
-	db, err := sql.Open("mysql", "root:pass1@tcp(127.0.0.1:3306)/tuts")
-
-	// if there is an error opening the connection, handle it
-	if err != nil {
-		log.Print(err.Error())
-	}
+// MySqlQuery : исполняет запрос, возвращает записи.
+func queryMySql(query string) *sql.Rows {
+	db, err := sql.Open("mysql", "root:root@tcp(127.0.0.1:3305)/works")
+	show(err)
 	defer db.Close()
 
-	// Execute the query
-	results, err := db.Query("SELECT id, name FROM tags")
-	if err != nil {
-		panic(err.Error()) // proper error handling instead of panic in your app
-	}
+	rows, err := db.Query(query)
+	check(err)
 
-	for results.Next() {
-		var tag Tag
-		// for each row, scan the result into our tag composite object
-		err = results.Scan(&tag.ID, &tag.Name)
-		if err != nil {
-			panic(err.Error()) // proper error handling instead of panic in your app
-		}
-		// and then print out the tag's Name attribute
-		log.Printf(tag.Name)
-	}
-	jsonText := "{}"
-	return string(jsonText)
+	return rows
 }
+
+// getBroadcastsIds : возвращает ids онлайн трансляций
+func getBroadcastsIds() []int {
+	rows := queryMySql("SELECT id_trans FROM online_trans_list")
+	defer rows.Close()
+
+	// ids := make( []int, 5)
+	ids := []int{}
+	for rows.Next() {
+		var id int
+		err := rows.Scan(&id)
+		check(err)
+		ids = append(ids, id)
+	}
+	return ids
+}
+

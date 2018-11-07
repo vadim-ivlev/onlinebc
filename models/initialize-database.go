@@ -1,15 +1,11 @@
 package models
 
 import (
-	"database/sql"
+	// "database/sql"
+	// "encoding/json"
 	"fmt"
-	"io/ioutil"
-	"net/http"
-	"strconv"
 	"time"
 
-	// "fmt"
-	"onlinebc/services/utils"
 	// blank import
 	_ "github.com/go-sql-driver/mysql"
 )
@@ -20,41 +16,28 @@ import (
 // }
 
 // ImportData : импортирует данные из существующей системы
-func ImportData(maxNumber int) {
-	db, err := sql.Open("mysql", "root:root@tcp(127.0.0.1:3305)/works")
-	utils.PrintIf(err)
-	defer db.Close()
+func ImportData(recNumber int) {
+	clearBrodcasts()
+	ids   := getBroadcastsIds()
+	maxId := getMaxValue(ids)
+	setSequenceValue(maxId)
 
-	results, err := db.Query("SELECT id_trans FROM online_trans_list")
-	utils.PanicIf(err)
+	fmt.Printf("Общее число записей = %v    Max Id = %v\n\n", len(ids), maxId)
 
-	counter := 1
-	for results.Next() {
-		if counter > maxNumber {
+	for i, id := range ids  {
+		if i >= recNumber {
 			break
 		}
-		var id int
-		err = results.Scan(&id)
-		utils.PanicIf(err)
-		json := []byte(getJson(id))
 
-		counter++
+		broadcast := getBroadcast(id)
+		fmt.Printf("id=%v %s\n", id, broadcast[0:100])
 
-		// println(json)
-		fmt.Printf("%s", json)
-		time.Sleep(1 * time.Second)
+		newid := insertBroadcast(id, string(broadcast))
+		fmt.Printf("New id = %v\n\n", newid)
+
+		time.Sleep(500 * time.Millisecond)
 	}
-}
 
-func getJson(id int) string {
-	// addr := fmt.Sprintf("https://outer.rg.ru/plain/online_translations/api/online.php?id=%v", id)
-	resp, err := http.Get("https://outer.rg.ru/plain/online_translations/api/online.php?id=" + strconv.Itoa(id))
-	utils.PanicIf(err)
-	defer resp.Body.Close()
-	body, err := ioutil.ReadAll(resp.Body)
-	utils.PanicIf(err)
-	defer resp.Body.Close()
-	return string(body)
 }
 
 func CreateDatabase() {
