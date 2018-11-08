@@ -1,14 +1,12 @@
 package models
 
 import (
-	"io/ioutil"
+    "io/ioutil"
 )
 
 func GetBroadcastJsonText(id string) string {
 
-	jsonText, err := ioutil.ReadFile("./data/text/broadcast-247.json")
-	if err != nil {
-		panic(err)
-	}
-	return string(jsonText)
+    jsonText, err := ioutil.ReadFile("./data/text/broadcast-247.json")
+    check(err)
+    return string(jsonText)
 }

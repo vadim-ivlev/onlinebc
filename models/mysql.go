@@ -4,27 +4,25 @@ import (
 	"database/sql"
 	// blank import
 	_ "github.com/go-sql-driver/mysql"
-
 	//blank import
 	_ "github.com/lib/pq"
-
+	"onlinebc/configs"
 )
 
-// MySqlQuery : исполняет запрос, возвращает записи.
-func queryMySql(query string) *sql.Rows {
-	db, err := sql.Open("mysql", "root:root@tcp(127.0.0.1:3305)/works")
+//  queryMySQL: исполняет запрос, возвращает записи.
+func queryMySQL(query string) *sql.Rows {
+	db, err := sql.Open("mysql", configs.Conf.MysqlConnStr)
 	show(err)
 	defer db.Close()
 
 	rows, err := db.Query(query)
 	check(err)
-
 	return rows
 }
 
 // getBroadcastsIds : возвращает ids онлайн трансляций
 func getBroadcastsIds() []int {
-	rows := queryMySql("SELECT id_trans FROM online_trans_list")
+	rows := queryMySQL("SELECT id_trans FROM online_trans_list")
 	defer rows.Close()
 
 	// ids := make( []int, 5)
@@ -37,4 +35,3 @@ func getBroadcastsIds() []int {
 	}
 	return ids
 }
-

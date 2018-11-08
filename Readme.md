@@ -1,10 +1,9 @@
 # Онлайн трансляции
 
 
+JSON API for rg.ru.
 
-Golang implementation of JSON API for rg.ru.
-
-Current PHP endpoints (2018.11.02):
+Endpoints on 2018.11.02:
 - https://outer.rg.ru/plain/online_translations/api/?main=0&active=0&num=3
 - https://outer.rg.ru/plain/online_translations/api/online.php?id=247
 
@@ -24,19 +23,46 @@ In terminal
 
 CTRL-C to terminate
 
+
+## develop
+
+After cloning the repo into $GOPATH/src/ start postgresql
+	
+	docker-compose up -d
+
+
+
+restore database from the dump
+
+	docker-compose exec db psql -U root -1 -v -q -d postgres -f /dumps/online1.sql
+
+Develop
+
+
+
+
+
 ## settings
 
-    configs/*.*
+see
 
-configs/config.db.yml - should be placed by sysadmin. 
+    configs/config.yaml
+
 
 ## database
 
 
-start postgresql
-	
-	docker-compose up -d
+start postgresql (localhost:5432) and adminer http://localhost:8080. 
 
+- System: PostgreSQL,
+- Server: db,
+- Username: root,
+- Password: root,
+- Database: onlinebc
+
+start
+
+    docker-compose up -d
 
 
 restore database
@@ -48,6 +74,10 @@ restore database
 db command line
 
 	docker-compose exec db psql -U root onlinebc
+
+stop
+
+    docker-compose down
 
 
 ## implementation

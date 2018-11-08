@@ -1,19 +1,12 @@
 package models
 
 import (
-	// "database/sql"
-	// "encoding/json"
 	"fmt"
 	"time"
-
 	// blank import
 	_ "github.com/go-sql-driver/mysql"
 )
 
-// type Tag struct {
-// 	id    int    `json:"id"`
-// 	title string `json:"name"`
-// }
 
 // ImportData : импортирует данные из существующей системы
 func ImportData(recNumber int) {
@@ -24,7 +17,7 @@ func ImportData(recNumber int) {
 
 	fmt.Printf("Общее число записей = %v    Max Id = %v\n\n", len(ids), maxId)
 
-	for i, id := range ids  {
+	for i, id := range ids {
 		if i >= recNumber {
 			break
 		}

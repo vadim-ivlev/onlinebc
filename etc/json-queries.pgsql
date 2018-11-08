@@ -1,4 +1,9 @@
 
+SELECT jsonb_pretty(broadcast::jsonb) as json
+FROM broadcasts
+LIMIT 1;
+
+
 
 SELECT 
     broadcast ->> 'interval' AS inter,
