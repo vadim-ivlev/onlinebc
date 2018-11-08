@@ -2,19 +2,17 @@ package controllers
 
 import (
 	"fmt"
-	"github.com/gorilla/mux"
 	"net/http"
 	"onlinebc/models"
 	"onlinebc/services/cache"
+
+	"github.com/gorilla/mux"
 )
 
-type Broadcast struct {
-}
-
+// LandingPage : To test API in browser.
 func LandingPage(w http.ResponseWriter, req *http.Request) {
-	// json.NewEncoder(w).Encode("Hello from new Api")
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
-	const page = `
+	page := `
         <h3>Online broadcasting API for rg.ru</h3>
         <div>
             <a target="_blank" href="broadcast/247">%s%sbroadcast/247</a>
@@ -23,7 +21,7 @@ func LandingPage(w http.ResponseWriter, req *http.Request) {
 	fmt.Fprintf(w, page, req.Host, req.URL.Path)
 }
 
-// returns list of broadcasts
+// GetBroadcastList returns list of broadcasts
 func GetBroadcastList(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	main := vars["main"]
@@ -31,24 +29,14 @@ func GetBroadcastList(w http.ResponseWriter, r *http.Request) {
 	num := vars["num"]
 
 	fmt.Printf("main=%v active=%v num=%v", main, active, num)
-
 }
 
 // GetBroadcast returns a broadcast and its messages
 func GetBroadcast(w http.ResponseWriter, r *http.Request) {
-	vars := mux.Vars(r)
-	id := vars["id"]
-	println(id)
-	return
+	id := mux.Vars(r)["id"]
 
-	jsonText, err := cache.Get(id)
-	if err == nil {
-		w.Write([]byte(jsonText))
-		return
-	}
+	json := models.GetBroadcastJson(id)
 
-	jsonText = models.GetBroadcastJsonText(id)
-    
-	cache.Set("broadcast-json:"+id, jsonText)
-	fmt.Fprint(w, jsonText)
+	cache.Set(r.RequestURI, json)
+	fmt.Fprint(w, json)
 }

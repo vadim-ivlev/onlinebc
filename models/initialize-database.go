@@ -3,19 +3,21 @@ package models
 import (
 	"fmt"
 	"time"
+
 	// blank import
 	_ "github.com/go-sql-driver/mysql"
 )
 
-
 // ImportData : импортирует данные из существующей системы
 func ImportData(recNumber int) {
+	println("Importing data. CTRL-C to interrupt.")
+
 	clearBrodcasts()
-	ids   := getBroadcastsIds()
+	ids := getBroadcastsIds()
 	maxId := getMaxValue(ids)
 	setSequenceValue(maxId)
 
-	fmt.Printf("Общее число записей = %v    Max Id = %v\n\n", len(ids), maxId)
+	fmt.Printf("Total number of records = %v    Max Id = %v\n\n", len(ids), maxId)
 
 	for i, id := range ids {
 		if i >= recNumber {

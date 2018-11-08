@@ -14,12 +14,12 @@ Current PHP endpoints (2018.11.02):
 */
 
 import (
-    "flag"
-    "fmt"
-    "onlinebc/configs"
-    "onlinebc/models"
-    "onlinebc/routers"
-    "os"
+	"flag"
+	"fmt"
+	"onlinebc/configs"
+	"onlinebc/models"
+	"onlinebc/routers"
+	"os"
 )
 
 const msg = `
@@ -30,7 +30,7 @@ In browser
 	http://localhost%v/
 	
 	http://localhost%v/broadcast/247
-	http://localhost:%v/api/online.php?id=247
+	http://localhost%v/api/online.php?id=247
 
 
 
@@ -42,24 +42,22 @@ CTRL-C to terminate
 `
 
 func main() {
-    // Read config params
-    configs.Conf.ReadConfigFile("./configs/config.yaml")
+	// Read config params
+	configs.Conf.ReadConfigFile("./configs/config.yaml")
 
-    // Process command line parameters
-    isImporting := flag.Bool("importdata", false, "Import data from the current app using http requests and mysql connection.")
-    flag.Parse()
+	// Process command line parameters
+	isImporting := flag.Bool("importdata", false, "Import data from the current app using http requests and mysql connection.")
+	flag.Parse()
 
-    if *isImporting {
-        println("Importing data. CTRL-C to interrupt.")
-        models.ImportData(500)
-        os.Exit(0)
-    }
+	if *isImporting {
+		models.ImportData(500)
+		os.Exit(0)
+	}
 
-    
-    // Print a greeting message
-    p:=configs.Conf.Port
-    fmt.Printf(msg, p, p, p, p)
-    
-    // and start serving routes
-    routers.Serve()
+	// Print a greeting message
+	p := configs.Conf.Port
+	fmt.Printf(msg, p, p, p, p)
+
+	// and start serving routes
+	routers.Serve()
 }
