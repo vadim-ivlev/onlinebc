@@ -11,23 +11,23 @@ import (
 )
 
 func assignRoutes(router *mux.Router) *mux.Router {
-	router.Path("/").HandlerFunc(controllers.LandingPage).Methods("GET")
-	router.Path("/broadcasts").HandlerFunc(controllers.GetBroadcastList).Methods("GET")
-	router.Path("/broadcast/{id}").HandlerFunc(controllers.GetBroadcast).Methods("GET")
+	router.Path("/").HandlerFunc(controllers.LandingPage).Methods("GET", "HEAD")
+	router.Path("/broadcasts").HandlerFunc(controllers.GetBroadcastList).Methods("GET", "HEAD")
+	router.Path("/broadcast/{id}").HandlerFunc(controllers.GetBroadcast).Methods("GET", "HEAD")
 
 	// API for external use. Legacy.
 
 	// https://outer.rg.ru/plain/online_translations/api/online.php?id=247
 	router.Path("/api/online.php").
 		Queries("id", "{id}").
-		HandlerFunc(controllers.GetBroadcast).Methods("GET")
+		HandlerFunc(controllers.GetBroadcast).Methods("GET", "HEAD")
 
 	// https://outer.rg.ru/plain/online_translations/api/?main=0&active=0&num=3
 	router.Path("/api/").
 		Queries("main", "{main}").
 		Queries("active", "{active}").
 		Queries("num", "{num}").
-		HandlerFunc(controllers.GetBroadcastList).Methods("GET")
+		HandlerFunc(controllers.GetBroadcastList).Methods("GET", "HEAD")
 
 	return router
 }

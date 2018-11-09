@@ -16,15 +16,15 @@ func HeadersMiddleware(next http.Handler) http.Handler {
 
 func RedisMiddleware(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		
+
 		key := r.RequestURI
 		value, err := cache.Get(key)
 		if err == nil {
-			w.Header().Set("Redis", "Is a good thing")
+			w.Header().Set("Redis", "Data restored from redis")
 			w.Write([]byte(value))
 			return
 		}
-		
+
 		next.ServeHTTP(w, r)
 	})
 }

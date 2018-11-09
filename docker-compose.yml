@@ -27,6 +27,15 @@ services:
           - "6389:6379"
       restart: always
 
+  pgloader:
+      image: dimitri/pgloader
+      container_name: pgloader
+      network_mode: bridge
+      volumes:
+        - "./data:/data"
+      command: bash -c "sleep 3600"
+      restart: always
+
 
   # adminer:
   #   image: adminer
