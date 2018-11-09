@@ -11,6 +11,7 @@ type conf struct {
     Port         string `yaml:"serving port"`
     MysqlConnStr string `yaml:"mysql connection string"`
     PstgrConnStr string `yaml:"postgres connection string"`
+    RedisConnStr string `yaml:"redis connection string"`
 }
 
 

@@ -16,14 +16,15 @@ func HeadersMiddleware(next http.Handler) http.Handler {
 
 func RedisMiddleware(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		w.Header().Set("Redis", "Is a good thing")
+		
 		key := r.RequestURI
 		value, err := cache.Get(key)
 		if err == nil {
+			w.Header().Set("Redis", "Is a good thing")
 			w.Write([]byte(value))
 			return
 		}
-		// Call the next handler, which can be another middleware in the chain, or the final handler.
+		
 		next.ServeHTTP(w, r)
 	})
 }

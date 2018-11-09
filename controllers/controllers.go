@@ -34,9 +34,7 @@ func GetBroadcastList(w http.ResponseWriter, r *http.Request) {
 // GetBroadcast returns a broadcast and its messages
 func GetBroadcast(w http.ResponseWriter, r *http.Request) {
 	id := mux.Vars(r)["id"]
-
 	json := models.GetBroadcastJson(id)
-
 	cache.Set(r.RequestURI, json)
 	fmt.Fprint(w, json)
 }

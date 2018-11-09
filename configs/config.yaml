@@ -3,6 +3,6 @@
 serving port:                 :1234
 mysql connection string:      root:root@tcp(127.0.0.1:3305)/works
 postgres connection string:   user=root password=root dbname=onlinebc sslmode=disable
-
+redis connection string:      pg-redis-com:6379
 
 #postgres connection string: postgres://root:root@localhost/onlinebc?sslmode=disable
