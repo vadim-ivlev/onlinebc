@@ -19,14 +19,23 @@ services:
       POSTGRES_DB: onlinebc
       PGDATA: /var/lib/postgresql/data/pgdata
 
-  adminer:
-    image: adminer
-    container_name: adminer-com
-    network_mode: bridge
-    restart: always
-    ports:
-      - 8080:8080
-    depends_on:
-      - db
-    links:
-      - db
+  redis:
+      image: redis
+      container_name: pg-redis-com
+      network_mode: bridge
+      ports:
+          - "6389:6379"
+      restart: always
+
+
+  # adminer:
+  #   image: adminer
+  #   container_name: adminer-com
+  #   network_mode: bridge
+  #   restart: always
+  #   ports:
+  #     - 8080:8080
+  #   depends_on:
+  #     - db
+  #   links:
+  #     - db
