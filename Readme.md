@@ -34,7 +34,8 @@ After cloning the repo into $GOPATH/src/ start postgresql
 
 restore database from the dump
 
-	docker-compose exec db psql -U root -1 -v -q -d postgres -f /dumps/online1.sql
+    docker-compose exec db psql -U root -1 -d onlinebc -f /dumps/onlinebc-dump.sql
+
 
 Develop
 
@@ -60,29 +61,39 @@ start postgresql (localhost:5432) and adminer http://localhost:8080.
 - Password: root,
 - Database: onlinebc
 
-start
+
+START
 
     docker-compose up -d
 
 
-restore database
 
-	docker-compose exec db psql -U root -1 -v -q -d postgres -f /dumps/online1.sql
+STOP
+
+    docker-compose down
 
 
-dump database
+
+RESTORE database from SQL dump
+
+	docker-compose exec db psql -U root -1 -d onlinebc -f /dumps/onlinebc-dump.sql
+
+
+DUMP to SQL file 
   
-  docker-compose exec db pg_dump --file "onlinebc-data.sql" --host "localhost" --port "5432" --username "root"  --verbose --format=p  "onlinebc"
+    docker-compose exec db pg_dump --file "/dumps/onlinebc-dump.sql" --host "localhost" --port "5432" --username "root"  --verbose --format=p --create --clean --if-exists --dbname "onlinebc"
+
+
+SHOW CREATE TABLE
+
+    docker-compose exec db pg_dump -U root -d onlinebc -t online_trans_list --schema-only
 
 
 
-db command line
+COMMAND LINE
 
 	docker-compose exec db psql -U root onlinebc
 
-stop
-
-    docker-compose down
 
 
 ## implementation

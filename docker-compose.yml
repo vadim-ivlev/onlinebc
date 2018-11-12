@@ -27,15 +27,6 @@ services:
           - "6389:6379"
       restart: always
 
-  pgloader:
-      image: dimitri/pgloader
-      container_name: pgloader
-      network_mode: bridge
-      volumes:
-        - "./data:/data"
-      command: bash -c "sleep 3600"
-      restart: always
-
 
   # adminer:
   #   image: adminer
@@ -48,3 +39,21 @@ services:
   #     - db
   #   links:
   #     - db
+
+
+
+  # neo4j:
+  #   image: neo4j
+  #   container_name: neo4j-com
+  #   network_mode: "bridge"
+  #   ports:
+  #     - "7474:7474"
+  #     - "7687:7687"
+  #   # environment:
+  #   #   - NEO4J_dbms_security_procedures_unrestricted=apoc.*
+  #   #   - NEO4J_apoc_import_file_enabled=true
+  #   #   - NEO4J_dbms_shell_enabled=true
+  #   volumes:
+  #     - ./neo4j/plugins:/plugins
+  #     - ./neo4j/data:/data
+  #     - ./neo4j/import:/import
