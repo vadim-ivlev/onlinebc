@@ -70,6 +70,11 @@ restore database
 	docker-compose exec db psql -U root -1 -v -q -d postgres -f /dumps/online1.sql
 
 
+dump database
+  
+  docker-compose exec db pg_dump --file "onlinebc-data.sql" --host "localhost" --port "5432" --username "root"  --verbose --format=p  "onlinebc"
+
+
 
 db command line
 
