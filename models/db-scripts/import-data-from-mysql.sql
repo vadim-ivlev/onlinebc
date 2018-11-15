@@ -1,24 +1,24 @@
 /*
-DATA TRANFER FROM MYSQL TO POSTGRESS
+DATA IMPORT FROM MYSQL TO POSTGRES
 
-1. Make copies auth_users,
-online_trans_data,
-online_trans_list
-from mySQL/works to Postgres/onlinebc.public.
+1. Using dbeaver make copies 
+- auth_users,
+- online_trans_data,
+- online_trans_list
+from mySQL/works to Postgres/onlinebc schema public .
 
-2. Create tables podcast,
-post
-
-3. Create views 
+2. Create tables 
+- podcast,
+- post
 
 */
 
 
 --broadcast ********************************************************************
 
-DROP TABLE IF EXISTS public.broadcast CASCADE;
+DROP TABLE IF EXISTS broadcast CASCADE;
 
-CREATE TABLE public.broadcast AS
+CREATE TABLE broadcast AS
 SELECT 
     id_trans                AS id,
     title,
@@ -38,7 +38,7 @@ SELECT
     diary_author
     --unicode
 FROM 
-    public.online_trans_list
+    online_trans_list
 ;
 
 -- set id as autoincrement + primary key for broadcast
@@ -54,10 +54,10 @@ ALTER TABLE broadcast ADD CONSTRAINT broadcast_pkey1 PRIMARY KEY (id);
 
 -- post *********************************************************
 
-DROP TABLE IF EXISTS public.post CASCADE;
+DROP TABLE IF EXISTS post CASCADE;
 
 
-CREATE TABLE public.post AS
+CREATE TABLE post AS
 SELECT 
     p.id_trans_data           id,
     p.id_trans_data_parent    id_parent,
@@ -69,9 +69,9 @@ SELECT
     p.img_data                img,
     p.has_big_img,
     p.user_id,
-    (select (a."name" || ' ' || a.second_name) from public.auth_users a where a.id = p.user_id )  author
+    (select (a."name" || ' ' || a.second_name) from auth_users a where a.id = p.user_id )  author
 FROM 
-    public.online_trans_data p
+    online_trans_data p
 ;
 
 -- set id as autoincrement + primary key for post
@@ -90,66 +90,50 @@ ALTER TABLE post ADD CONSTRAINT post_broadcast_fkey FOREIGN KEY (id_broadcast) R
 --
 
 -- delete temporary objects
-DROP TABLE IF EXISTS public.online_trans_data CASCADE;
-DROP TABLE IF EXISTS public.online_trans_list CASCADE;
-DROP TABLE IF EXISTS public.auth_users CASCADE;
+DROP TABLE IF EXISTS online_trans_data CASCADE;
+DROP TABLE IF EXISTS online_trans_list CASCADE;
+DROP TABLE IF EXISTS auth_users CASCADE;
+
+
+
+-- Media : holds post images 
+
+DROP TABLE IF EXISTS media CASCADE;
+
+CREATE TABLE media (
+    id serial NOT NULL,
+    post_id int4 NOT NULL,
+    uri varchar(255) NULL,
+    thumb varchar(255) NULL,
+    "source" varchar(255) NULL,
+    CONSTRAINT media_pk PRIMARY KEY (id),
+    CONSTRAINT media_post_fk FOREIGN KEY (post_id) REFERENCES public.post(id)
+);
+
+CREATE INDEX media_post_id_idx ON public.media (post_id);
+
+COMMENT ON TABLE public.media IS 'Images for posts';
 
 
 
 
+INSERT INTO media (post_id, uri, source)
+SELECT 
+    id post_id,
+    split_part(img,'|',1) AS uri,
+    split_part(img,'|',2) AS source
+FROM 
+    public.post
+WHERE 
+    split_part(img,'|',1) <> 'none_img'
+;
+
+--SOME additional stuff
+--SELECT count(*) FROM public.media;
+--DELETE FROM media;
+--SELECT setval('media_id_seq', 1, true);
 
 
--- Functions --------------------------------
+ALTER TABLE post DROP COLUMN img CASCADE;
+ALTER TABLE post DROP COLUMN user_id CASCADE;
 
-
--- get_posts:  returns json of posts by broadcast id
-
-DROP FUNCTION IF EXISTS get_posts(integer);
-
-CREATE OR REPLACE FUNCTION public.get_posts(idd integer) RETURNS json AS $$
-BEGIN   
-    RETURN  
-    (
-        select array_to_json(array_agg(row_to_json( t, false )),true) 
-        from ( 
-            select * from post where id_broadcast = idd 
-        ) t 
-    );
-    
-END;
-$$ LANGUAGE plpgsql;
-
--- test
---SELECT get_posts(247);
---SELECT jsonb_pretty( get_posts(247)::jsonb);
-
-
-
-
-
-
--- get_broadcast(id): returns json of a broadcast by id.
-
-DROP FUNCTION IF EXISTS get_broadcast(integer);
-
-CREATE OR REPLACE FUNCTION get_broadcast(idd integer) RETURNS json AS $$
-BEGIN   
-    RETURN  
-    (
-        select row_to_json(t, true)
-        from 
-        ( select *, get_posts(id) as posts  from broadcast where id = idd ) t 
-    );
-    
-END;
-$$ LANGUAGE plpgsql;
-
-
--- test 
-SELECT get_broadcast(247);
-SELECT jsonb_pretty( get_broadcast(247)::jsonb);
-
-
-
-SELECT jsonb_pretty ( (broadcast->'online'->'broadcast'->0->'posts') ::jsonb ) "json" FROM broadcast_json WHERE id=247;
-SELECT jsonb_pretty ( get_posts(247)::jsonb);
