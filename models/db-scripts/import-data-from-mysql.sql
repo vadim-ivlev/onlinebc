@@ -83,6 +83,19 @@ ALTER TABLE post ADD CONSTRAINT post_pkey1 PRIMARY KEY (id);
 --SELECT setval('post_id_seq', 30000, true);
 ALTER TABLE post ADD CONSTRAINT post_broadcast_fkey FOREIGN KEY (id_broadcast) REFERENCES broadcast (id);
 
+-- CLEARING POST TABLE.
+-- Remove zerros from id_parent columns 
+-- or in general
+-- set id_parents= NULL if there is no such id in post table
+
+UPDATE post SET id_parent=NULL WHERE id_parent NOT IN (SELECT DISTINCT id FROM post);
+-- drp the old constrain
+ALTER TABLE IF EXISTS post DROP CONSTRAINT IF EXISTS post_post_fkey;
+-- now we can add a recursive foreign key without errors
+ALTER TABLE post ADD CONSTRAINT post_post_fkey FOREIGN KEY (id_parent) REFERENCES post (id);
+
+
+
 
 -- some checks;
 --INSERT INTO broadcast (title) VALUES ('Новый');
@@ -107,10 +120,12 @@ CREATE TABLE media (
     thumb varchar(255) NULL,
     "source" varchar(255) NULL,
     CONSTRAINT media_pk PRIMARY KEY (id),
-    CONSTRAINT media_post_fk FOREIGN KEY (post_id) REFERENCES public.post(id)
+    CONSTRAINT media_post_fk FOREIGN KEY (post_id) REFERENCES post(id)
 );
 
-CREATE INDEX media_post_id_idx ON public.media (post_id);
+CREATE INDEX media_post_id_idx ON media (post_id);
+
+
 
 COMMENT ON TABLE public.media IS 'Images for posts';
 

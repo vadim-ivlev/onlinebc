@@ -40,6 +40,45 @@ Server: nginx/1.14.0
 Set-Cookie: rg_con=qqmpu12nn3i9mmj8pt7lbmdlo5; path=/
 Transfer-Encoding: chunked
 
+
+Reduced Variant Begin: -------------------------------------------------------
+
+{
+    "interval": 0,
+    "widgets": {
+        "instagram": 0,
+        "twitter": 0,
+        "facebook": 0
+    },
+    "online": {
+        "broadcast": [
+
+            {
+                "name": "&quot;Прямая линия&quot; с Владимиром Путиным",
+                "date": "07.06.2018",
+                "time": "11:15",
+                "info": "Трансляция завершена",
+                "uri": "http://rg.ru/2018/06/07/priamaia-liniia-s-vladimirom-putinym-onlajn-transliaciia.html",
+                "media": { "uri": "" },
+                "show_date": 0,
+                "show_time": 1,
+                "diary": 0,
+                "diary_author": "",
+                "posts": [],
+                "posts__length": 85
+            }
+
+        ],
+        "broadcast__length": 1,
+        "broadcast__id": 354,
+        "broadcast__completed": 1
+    }
+}
+
+Reduced Variant End: -------------------------------------------------------
+
+
+
 {
     "interval": 0,
     "widgets": {
