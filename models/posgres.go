@@ -40,7 +40,8 @@ func GetBroadcastJson(id string) string {
 	check(err)
 	defer db.Close()
 	var json string
-	err = db.QueryRow("SELECT broadcast FROM broadcasts WHERE id=$1 LIMIT 1;", id).Scan(&json)
+	// err = db.QueryRow("SELECT broadcast FROM broadcast_json WHERE id=$1 LIMIT 1;", id).Scan(&json)
+	err = db.QueryRow("SELECT get_broadcast($1);", id).Scan(&json)
 	show(err)
 	return json
 }
