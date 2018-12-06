@@ -110,7 +110,4 @@ COMMAND LINE
 	docker-compose exec db psql -U root onlinebc
 
 
-
-## implementation
-
-See [NOTES.md](NOTES.md)
+TODO: refactor postgres, docker-compose + golang container, remote debug, GetBroadcastList
