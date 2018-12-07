@@ -25,7 +25,6 @@ func Get(key string) (string, error) {
 }
 
 // Set sets value by key.
-// TODO: use TTL
 func Set(key string, value string) error {
 	conn, err := redis.Dial("tcp", params.ConnectStr)
 	if err != nil {
@@ -34,7 +33,7 @@ func Set(key string, value string) error {
 	}
 	defer conn.Close()
 
-	resp := conn.Cmd("SET", "onlinebc:"+key, value)
+	resp := conn.Cmd("SETEX", "onlinebc:"+key, params.TTL, value)
 	if resp.Err != nil {
 		return resp.Err
 	}
@@ -44,5 +43,17 @@ func Set(key string, value string) error {
 
 // Del deletes the key from the redis.
 func Del(key string) error {
+	conn, err := redis.Dial("tcp", params.ConnectStr)
+	if err != nil {
+		log.Print("DEL No connection")
+		return err
+	}
+	defer conn.Close()
+
+	resp := conn.Cmd("DEL", "onlinebc:"+key)
+	if resp.Err != nil {
+		return resp.Err
+	}
+
 	return nil
 }

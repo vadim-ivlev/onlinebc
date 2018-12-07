@@ -103,6 +103,12 @@ Postgre доступен на localhost:5432.
 	docker-compose exec db psql -U root onlinebc
 
 
+Командная строка Redis
+
+    docker-compose exec redis redis-cli
+
+
+
 -------------------------------
 
 TODO: add golang container to docker-compose, remote debug, GetBroadcastList, show routes 

@@ -14,7 +14,7 @@ func LandingPage(w http.ResponseWriter, req *http.Request) {
 	page := `
         <h3>Online broadcasting API for rg.ru</h3>
         <div>
-            <a target="_blank" href="broadcast/247">%s%sbroadcast/247</a>
+            <a target="_blank" href="broadcast/354">%s%sbroadcast/354</a>
         </div>
     `
 	fmt.Fprintf(w, page, req.Host, req.URL.Path)
