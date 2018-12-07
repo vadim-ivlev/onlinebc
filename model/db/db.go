@@ -2,12 +2,11 @@ package db
 
 import (
 	"database/sql"
-
 	//blank import
 	_ "github.com/lib/pq"
 )
 
-// GetBroadcastJson возвращает json трансляции с идентификатором id.
+// GetBroadcastJson возвращает  трансляцию с идентификатором id в JSON формате.
 func GetBroadcastJson(id string) string {
 	db, err := sql.Open("postgres", connectStr)
 	panicIf(err)
@@ -17,3 +16,14 @@ func GetBroadcastJson(id string) string {
 	printIf(err)
 	return json
 }
+
+// ExequteSQL executes a query defined in sqlText parameter.
+func ExequteSQL(sqlText string) error {
+	db, err := sql.Open("postgres", connectStr)
+	panicIf(err)
+	defer db.Close()
+	_, err1 := db.Exec(sqlText)
+	printIf(err1)
+	return err1
+}
+

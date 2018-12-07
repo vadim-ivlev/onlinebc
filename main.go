@@ -19,14 +19,14 @@ func main() {
 	// считать параметры командной строки
 	serve, port := readCommandLineParams()
 
-	// если есть параметр -serve, запустить сервер
+	// если есть параметр -serve, напечатать приветствие и запустить сервер
 	if serve {
 		printGreetings(port)
 		router.Serve(":" + strconv.Itoa(port))
 	}
 }
 
-// TODO: finish params.
+
 func readCommandLineParams() (bool, int) {
 	port := 1234
 	serve := true
@@ -34,23 +34,20 @@ func readCommandLineParams() (bool, int) {
 	flag.IntVar(&port, "port", 7777, "Номер порта")
 	flag.BoolVar(&serve, "serve", false, "Запустить приложение")
 
-	initdb := flag.Bool("initdb", false, "Инициализировать базу данных c пустыми таблицами.")
-	filldb := flag.Bool("filldb", false, "Заполнить таблицы БД тестовыми данными.")
-	createDbFunctions := flag.Bool("create-db-functions", false, "Породить функции БД из файла migrations/create-functions.sql")
+	initdb := flag.Bool("initdb", false, "Инициализировать БД c тестовыми данными.")
+	createDbFunctions := flag.Bool("create-db-functions", false, "Породить функции БД из файла migrations/views-and-functions.sql")
 	printParams := flag.Bool("print-params", false, "Показать параметры приложения.")
 
 	flag.Parse()
 
 	if *initdb {
 		fmt.Println("инициализация БД...")
-		os.Exit(0)
-	}
-	if *filldb {
-		fmt.Println("Заполнение БД тестовыми данными...")
+		db.ExequteSQL(readTextFile("./migrations/onlinebc-dump.sql"))
 		os.Exit(0)
 	}
 	if *createDbFunctions {
 		fmt.Println("Порождение функций БД...")
+		db.ExequteSQL(readTextFile("./migrations/views-and-functions.sql"))
 		os.Exit(0)
 	}
 	if *printParams {
@@ -59,13 +56,18 @@ func readCommandLineParams() (bool, int) {
 		os.Exit(0)
 	}
 
-	fmt.Println("Параметры запуска приложения")
+	fmt.Println("\nПараметры запуска приложения **************************\n")
 	flag.Usage()
 
 	return serve, port
 }
 
 func printGreetings(port int) {
-	greeting, _ := ioutil.ReadFile("./docs/greetings.txt")
-	fmt.Printf(string(greeting), port, port, port, port)
+	fmt.Printf(readTextFile("./docs/greetings.txt"), port, port, port, port)
 }
+
+func readTextFile(fileName string) string {
+	txt, _ := ioutil.ReadFile(fileName)
+	return string(txt)
+}
+

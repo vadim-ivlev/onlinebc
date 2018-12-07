@@ -11,13 +11,14 @@ services:
       - 5432:5432
     volumes:
       - "./pgdata:/var/lib/postgresql/data/pgdata"
-      - "./data/dumps:/dumps"
+      - "./migrations:/dumps"
       - "./etc/.pgpass:/root/.pgpass"
     environment:
       POSTGRES_USER: root
       POSTGRES_PASSWORD: root
-      POSTGRES_DB: onlinebc
+      POSTGRES_DB: onlinebc 
       PGDATA: /var/lib/postgresql/data/pgdata
+
 
   redis:
       image: redis
@@ -28,32 +29,16 @@ services:
       restart: always
 
 
-  # adminer:
-  #   image: adminer
-  #   container_name: adminer-com
-  #   network_mode: bridge
-  #   restart: always
-  #   ports:
-  #     - 8080:8080
-  #   depends_on:
-  #     - db
-  #   links:
-  #     - db
+  adminer:
+    image: adminer
+    container_name: adminer-com
+    network_mode: bridge
+    restart: always
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
+    links:
+      - db
 
 
-
-  # neo4j:
-  #   image: neo4j
-  #   container_name: neo4j-com
-  #   network_mode: "bridge"
-  #   ports:
-  #     - "7474:7474"
-  #     - "7687:7687"
-  #   # environment:
-  #   #   - NEO4J_dbms_security_procedures_unrestricted=apoc.*
-  #   #   - NEO4J_apoc_import_file_enabled=true
-  #   #   - NEO4J_dbms_shell_enabled=true
-  #   volumes:
-  #     - ./neo4j/plugins:/plugins
-  #     - ./neo4j/data:/data
-  #     - ./neo4j/import:/import
