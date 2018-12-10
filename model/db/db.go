@@ -6,8 +6,8 @@ import (
 	_ "github.com/lib/pq"
 )
 
-// GetBroadcastJson возвращает  трансляцию с идентификатором id в JSON формате.
-func GetBroadcastJson(id string) string {
+// GetBroadcastJSON возвращает  трансляцию с идентификатором id в JSON формате.
+func GetBroadcastJSON(id string) string {
 	db, err := sql.Open("postgres", connectStr)
 	panicIf(err)
 	defer db.Close()
@@ -26,4 +26,3 @@ func ExequteSQL(sqlText string) error {
 	printIf(err1)
 	return err1
 }
-
