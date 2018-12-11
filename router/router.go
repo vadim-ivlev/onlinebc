@@ -4,34 +4,50 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	"onlinebc/controller"
+	c "onlinebc/controller"
 	"onlinebc/middleware"
 	"strings"
 
 	"github.com/gorilla/mux"
 )
 
-func assignRoutes(router *mux.Router) *mux.Router {
-	router.Path("/").HandlerFunc(controller.LandingPage).Methods("GET", "HEAD")
-	router.Path("/routes").HandlerFunc(controller.GetRoutes).Methods("GET", "HEAD")
-	router.Path("/broadcasts").HandlerFunc(controller.GetBroadcastList).Methods("GET", "HEAD")
-	router.Path("/broadcast/{id}").HandlerFunc(controller.GetBroadcast).Methods("GET", "HEAD")
+func defineRoutes(router *mux.Router) {
+	c.Rs = []c.Route{
+		{"/", c.LandingPage, nil, "Стартовая страница"},
+		{"/routes", c.GetRoutes, nil, "JSON  маршрутов.  Документация API."},
+		{"/broadcasts", c.GetBroadcastList, nil, "Получить список трансляций"},
+		{"/broadcast/{id}", c.GetBroadcast, nil, "возвращает трасляцию с ее постами"},
+		{"/api/online.php", c.GetBroadcast, []c.Param{{"id", "{id}"}}, "возвращает трасляцию с ее постами. Legacy"},
+		{"/api/", c.GetBroadcastList, nil, "Получить список трансляций"},
+	}
+
+	for _, r := range c.Rs {
+		rout := router.HandleFunc(r.Path, r.Func).Methods("GET", "HEAD")
+		for _, q := range r.Params {
+			rout.Queries(q.Name, q.Value)
+		}
+	}
+}
+
+func assignRoutes(router *mux.Router) {
+	router.Path("/").HandlerFunc(c.LandingPage).Methods("GET", "HEAD")
+	router.Path("/routes").HandlerFunc(c.GetRoutes).Methods("GET", "HEAD")
+	router.Path("/broadcasts").HandlerFunc(c.GetBroadcastList).Methods("GET", "HEAD")
+	router.Path("/broadcast/{id}").HandlerFunc(c.GetBroadcast).Methods("GET", "HEAD")
 
 	// API for external use. Legacy.
 
 	// https://outer.rg.ru/plain/online_translations/api/online.php?id=247
 	router.Path("/api/online.php").
 		Queries("id", "{id}").
-		HandlerFunc(controller.GetBroadcast).Methods("GET", "HEAD")
+		HandlerFunc(c.GetBroadcast).Methods("GET", "HEAD")
 
 	// https://outer.rg.ru/plain/online_translations/api/?main=0&active=0&num=3
 	router.Path("/api/").
 		Queries("main", "{main}").
 		Queries("active", "{active}").
 		Queries("num", "{num}").
-		HandlerFunc(controller.GetBroadcastList).Methods("GET", "HEAD")
-
-	return router
+		HandlerFunc(c.GetBroadcastList).Methods("GET", "HEAD")
 }
 
 // Serve определяет пути, присоединяет функции middleware
@@ -39,38 +55,22 @@ func assignRoutes(router *mux.Router) *mux.Router {
 func Serve(port string) {
 
 	router := mux.NewRouter()
-	// router.Headers("Content-Type", "application/json; charset=utf-8")
-	assignRoutes(router)
-	controller.Routes = listRoutes(router)
+	defineRoutes(router)
+	// assignRoutes(router)
+	c.Routes = listRoutes(router)
 
 	router.Use(middleware.HeadersMiddleware)
 	router.Use(middleware.RedisMiddleware)
 
 	log.Fatal(http.ListenAndServe(port, router))
-
-	// Альтернативный способ добавить CORS заголовки
-	// headersOk := handlers.AllowedHeaders([]string{"Authorization"})
-	// originsOk := handlers.AllowedOrigins([]string{"*"})
-	// methodsOk := handlers.AllowedMethods([]string{"GET", "POST", "OPTIONS"})
-	// log.Fatal(http.ListenAndServe(":12345", handlers.CORS(originsOk, headersOk, methodsOk)(router)))
-
 }
 
-// // RouteInfo - информация о пути и методах маршрута. Документация API.
-// type RouteInfo struct {
-// 	Path string
-// 	Meth string
-// }
-
-// // Routes содержит инфориацию о маршрутах.  Документация API.
-// var Routes []RouteInfo
-
 // GetRoutes : Перечисляет доступные маршруты. Документация API.
-func listRoutes(r *mux.Router) []controller.RouteInfo {
-	var routeInfos []controller.RouteInfo
+func listRoutes(r *mux.Router) []c.RouteInfo {
+	var routeInfos []c.RouteInfo
 
 	err := r.Walk(func(route *mux.Route, router *mux.Router, ancestors []*mux.Route) error {
-		var ri controller.RouteInfo
+		var ri c.RouteInfo
 		s := ""
 
 		pathTemplate, err := route.GetPathTemplate()

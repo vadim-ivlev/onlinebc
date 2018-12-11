@@ -6,7 +6,7 @@ import (
 
 	//blank import
 	_ "github.com/lib/pq"
-	"gopkg.in/yaml.v2"
+	yaml "gopkg.in/yaml.v2"
 )
 
 // Вспомогательные функции /////////////////////////////////////////////////////
