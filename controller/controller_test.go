@@ -7,6 +7,6 @@ import (
 
 func Test_routes(t *testing.T) {
 
-	fmt.Printf("RS=%v", Rs)
+	fmt.Printf("RS=%v", Routes)
 
 }

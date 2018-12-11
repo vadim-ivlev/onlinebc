@@ -3,6 +3,7 @@ package controller
 import (
 	"encoding/json"
 	"fmt"
+	"html/template"
 	"net/http"
 	"onlinebc/model/db"
 	"onlinebc/model/redis"
@@ -10,15 +11,6 @@ import (
 	"github.com/gorilla/mux"
 	yaml "gopkg.in/yaml.v2"
 )
-
-// RouteInfo - информация о пути и методах маршрута. Документация API.
-type RouteInfo struct {
-	Path string
-	Meth string
-}
-
-// Routes содержит инфориацию о маршрутах.  Документация API.
-var Routes []RouteInfo
 
 // Param - параметр запроса ?name=value&...
 type Param struct {
@@ -28,38 +20,24 @@ type Param struct {
 
 // Route - маршрут.
 type Route struct {
-	Path        string                                       // Строка маршрута
-	Func        func(w http.ResponseWriter, r *http.Request) // контроллер
-	Params      []Param                                      // возможные параметры
-	Description string                                       // описание. Для документации
+	Path        string
+	Func        func(w http.ResponseWriter, r *http.Request) `json:"-" yaml:"-"`
+	Params      []Param                                      `json:",omitempty" yaml:",omitempty"`
+	Description string
 }
 
-// Rs содержит инфориацию о маршрутах.  Документация API.
-var Rs []Route //{
-// 	{"/", LandingPage, nil, "Стартовая страница"},
-// 	{"/routes", GetRoutes, nil, "JSON  маршрутов.  Документация API."},
-// 	{"/broadcasts", GetBroadcastList, nil, "Получить список трансляций"},
-// 	{"/broadcast/{id}", GetBroadcast, nil, "возвращает трасляцию с ее постами"},
-// 	{"/api/online.php", GetBroadcast, []Param{{"id", "{id}"}}, "возвращает трасляцию с ее постами. Legacy"},
-// 	{"/api/", GetBroadcastList, nil, "Получить список трансляций"},
-// }
+// Routes содержит инфориацию о маршрутах.  Документация API.
+var Routes []Route
 
 // LandingPage : To test API in browser.
 func LandingPage(w http.ResponseWriter, req *http.Request) {
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
-	page := `
-        <h3>Online broadcasting API for rg.ru</h3>
-        <div>
-            <a target="_blank" href="broadcast/354">%s%sbroadcast/354</a>
-		</div>
-		<pre>%s</pre>
-		<hr>
-		<pre>%s</pre>
-
-	`
-	// bytes, _:= yaml.Marshal(Routes)
-	fmt.Fprintf(w, page, req.Host, req.URL.Path, toYAML(Routes), toYAML(Rs))
-	// fmt.Printf("Hello%v", Rs)
+	tmpl, err := template.ParseFiles("templates/landing-page.html")
+	if err == nil {
+		tmpl.Execute(w, Routes)
+	} else {
+		fmt.Fprintf(w, "ERR=%v", err)
+	}
 }
 
 // GetRoutes : Перечисляет доступные маршруты.  Документация API.
