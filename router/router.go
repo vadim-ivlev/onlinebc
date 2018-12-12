@@ -11,12 +11,16 @@ import (
 
 func defineRoutes(router *mux.Router) {
 	c.Routes = []c.Route{
-		{"/", c.LandingPage, nil, "Стартовая страница"},
-		{"/routes", c.GetRoutes, nil, "JSON  маршрутов.  Документация API."},
-		{"/broadcasts", c.GetBroadcastList, nil, "Получить список трансляций"},
-		{"/broadcast/{id}", c.GetBroadcast, nil, "возвращает трасляцию с ее постами"},
-		{"/api/online.php", c.GetBroadcast, []c.Param{{"id", "{id}"}}, "возвращает трасляцию с ее постами. Legacy"},
-		{"/api/", c.GetBroadcastList, nil, "Получить список трансляций"},
+		{"/", "/", c.LandingPage, nil, "Стартовая страница"},
+		{"/routes", "/routes", c.GetRoutes, nil, "JSON  маршрутов.  Документация API."},
+		{"/broadcasts", "/broadcasts", c.GetBroadcastList, nil, "Список трансляций"},
+		{"/broadcast/{id}", "/broadcast/354", c.GetBroadcast, nil, "Трасляция с постами"},
+		{"/api/online.php", "/api/online.php?id=354", c.GetBroadcast, []c.Param{{"id", "{id}"}}, "Трасляция с постами. Legacy"},
+		{"/api/", "/api/?main=0&active=0&num=3", c.GetBroadcastList, []c.Param{
+			{"main", "{main}"},
+			{"active", "{active}"},
+			{"num", "{num}"},
+		}, "Список трансляций"},
 	}
 
 	for _, route := range c.Routes {

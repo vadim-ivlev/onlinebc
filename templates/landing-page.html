@@ -1,31 +1,64 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
+    <title>Onlinebc API RG.RU</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <!-- <link rel=s"stylesheet" type="text/css" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" /> -->
-    <!-- <link rel="stylesheet" href="https://cdn.rawgit.com/Chalarangelo/mini.css/v3.0.1/dist/mini-nord.min.css"> -->
-    
-    <!-- <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic"> -->
-    <!-- <link rel="stylesheet" href="//cdn.rawgit.com/necolas/normalize.css/master/normalize.css"> -->
-    <!-- <link rel="stylesheet" href="//cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css"> -->
-    
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css" >
-    <script src="main.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Gamja+Flower|Roboto');
+
+        body {
+            margin: 30px;
+            font-family: 'Roboto1', sans-serif;
+        }
+
+        .gr {
+            color: slategray;
+        }
+
+        .or {
+            color: orangered;
+        }
+
+        .lt {
+            letter-spacing: -3px;
+            font-size: 150%;
+        }
+    </style>
+    <!-- <script src="main.js"></script> -->
 </head>
-<body style="margin:30px;" >
-        <h2>Online broadcasting API for rg.ru</h2>
-        <ul>
-            {{range .}}
-                    <li>
-                        <h3>{{.Description}}</h3>
-                        <pre>{{.Path}}{{range .Params}}{{.Name}}={{.Value}}&{{end}}</pre>
-                    </li>
-            {{end}}
-        </ul>
-           
+
+<body>
+    <div>
+        <!-- <img src="//cdnimg.rg.ru/res/images/media/logo/rg-main2x.png" style="width:110px;"> -->
+    </div>
+    <h2>
+    </h2>
+    <h3>
+        <span class="lt">
+            <span class="gr">RG</span><span class="or">RU</span>
+        </span>
+    </h3>
+    <h4>Onlinebc API </h4>
+    <hr>
+    <ul>
+        {{range .}}
+        <li>
+            <div>{{.Description}}</div>
+            <div>{{.Query}}</div>
+            <div>example: <a target="blank" href="{{.Example}}">{{.Example}}</a></div>
+            <br>
+        </li>
+        {{end}}
+    </ul>
+    <hr>
+    <div>
+        <a target="_blank" href="">GitLab</a>
+    </div>
+
+
 </body>
+
 </html>

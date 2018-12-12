@@ -21,9 +21,18 @@ type Param struct {
 // Route - маршрут.
 type Route struct {
 	Path        string
+	Example     string
 	Func        func(w http.ResponseWriter, r *http.Request) `json:"-" yaml:"-"`
 	Params      []Param                                      `json:",omitempty" yaml:",omitempty"`
 	Description string
+}
+
+func (r Route) Query() string {
+	s := r.Path + "?"
+	for _, p := range r.Params {
+		s += p.Name + "=" + p.Value + "&"
+	}
+	return s[0 : len(s)-1]
 }
 
 // Routes содержит инфориацию о маршрутах.  Документация API.

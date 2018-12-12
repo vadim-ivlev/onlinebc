@@ -12,12 +12,10 @@
 	В браузере:
 	
 		http://localhost:%v/
-		http://localhost:%v/broadcast/354
-		http://localhost:%v/api/online.php?id=354
 	
 	В терминале:
 	
-		curl -i localhost:%v/broadcast/247
+		curl -i localhost:%v/broadcast/354
 	
 CTRL-C для прерывания.
 ****************************************************

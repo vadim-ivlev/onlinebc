@@ -26,7 +26,6 @@ func main() {
 	}
 }
 
-
 func readCommandLineParams() (bool, int) {
 	port := 1234
 	serve := true
@@ -63,11 +62,10 @@ func readCommandLineParams() (bool, int) {
 }
 
 func printGreetings(port int) {
-	fmt.Printf(readTextFile("./docs/greetings.txt"), port, port, port, port)
+	fmt.Printf(readTextFile("./docs/greetings.txt"), port, port)
 }
 
 func readTextFile(fileName string) string {
 	txt, _ := ioutil.ReadFile(fileName)
 	return string(txt)
 }
-
