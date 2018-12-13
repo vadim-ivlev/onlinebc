@@ -7,11 +7,11 @@
     <title>Onlinebc API RG.RU</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-        @import url('https://fonts.googleapis.com/css?family=Gamja+Flower|Roboto');
+        @import url('https://fonts.googleapis.com/css?family=Open+Sans:800|Roboto:400,900&subset=cyrillic');
 
         body {
             margin: 30px;
-            font-family: 'Roboto1', sans-serif;
+            font-family: 'Roboto', sans-serif;
         }
 
         .gr {
@@ -25,6 +25,27 @@
         .lt {
             letter-spacing: -3px;
             font-size: 150%;
+            /* font-family: 'Open Sans', sans-serif; */
+            /* font-weight: 900; */
+        }
+
+        h4 {
+            font-family: 'Roboto', sans-serif;
+
+        }
+
+        .spec {
+            color: slategray;
+            margin-left: 70px;
+        }
+
+        .example {
+            color: slategray;
+            margin-left: 70px;
+        }
+
+        a {
+            text-decoration: none;
         }
     </style>
     <!-- <script src="main.js"></script> -->
@@ -47,15 +68,27 @@
         {{range .}}
         <li>
             <div>{{.Description}}</div>
-            <div>{{.Query}}</div>
-            <div>example: <a target="blank" href="{{.Example}}">{{.Example}}</a></div>
+            <div class="spec">{{.Query}}</div>
+            <div class="example">example: <a target="blank" href="{{.Example}}">{{.Example}}</a></div>
             <br>
         </li>
         {{end}}
     </ul>
     <hr>
     <div>
-        <a target="_blank" href="">GitLab</a>
+        <a target="_blank" href="https://git.rgwork.ru/web/onlinebc/tree/master">
+
+            <svg width="24" height="24" class="tanuki-logo" viewBox="0 0 36 36" style="vertical-align: text-top;">
+                <path class="tanuki-shape tanuki-left-ear" fill="#e24329" d="M2 14l9.38 9v-9l-4-12.28c-.205-.632-1.176-.632-1.38 0z"></path>
+                <path class="tanuki-shape tanuki-right-ear" fill="#e24329" d="M34 14l-9.38 9v-9l4-12.28c.205-.632 1.176-.632 1.38 0z"></path>
+                <path class="tanuki-shape tanuki-nose" fill="#e24329" d="M18,34.38 3,14 33,14 Z"></path>
+                <path class="tanuki-shape tanuki-left-eye" fill="#fc6d26" d="M18,34.38 11.38,14 2,14 6,25Z"></path>
+                <path class="tanuki-shape tanuki-right-eye" fill="#fc6d26" d="M18,34.38 24.62,14 34,14 30,25Z"></path>
+                <path class="tanuki-shape tanuki-left-cheek" fill="#fca326" d="M2 14L.1 20.16c-.18.565 0 1.2.5 1.56l17.42 12.66z"></path>
+                <path class="tanuki-shape tanuki-right-cheek" fill="#fca326" d="M34 14l1.9 6.16c.18.565 0 1.2-.5 1.56L18 34.38z"></path>
+            </svg>
+            &nbsp;&nbsp;Исходный код
+        </a>
     </div>
 
 
