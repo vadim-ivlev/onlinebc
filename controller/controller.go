@@ -9,7 +9,6 @@ import (
 	"onlinebc/model/redis"
 
 	"github.com/gorilla/mux"
-	yaml "gopkg.in/yaml.v2"
 )
 
 // Param - параметр запроса ?name=value&...
@@ -27,6 +26,7 @@ type Route struct {
 	Description string
 }
 
+// Query строит строку HTTP запроса по параметрам. Применяется в шаблонах документации API.
 func (r Route) Query() string {
 	s := r.Path + "?"
 	for _, p := range r.Params {
@@ -51,32 +51,66 @@ func LandingPage(w http.ResponseWriter, req *http.Request) {
 
 // GetRoutes : Перечисляет доступные маршруты.  Документация API.
 func GetRoutes(w http.ResponseWriter, req *http.Request) {
-	fmt.Fprint(w, toJSON(Routes))
+	bytes, _ := json.Marshal(Routes)
+	fmt.Fprint(w, string(bytes))
 }
 
-// GetBroadcastList Получить список трансляций
+// getByID возвращает что-то по его id в HTTP запросе запросе вида ?id=354
+func getByID(w http.ResponseWriter, r *http.Request, sqlText string) {
+	id := mux.Vars(r)["id"]
+	json := db.GetJSON(sqlText, id)
+	redis.Set(r.RequestURI, json)
+	fmt.Fprint(w, json)
+}
+
+// GetMedia возвращает медиа поста по его id
+func GetMedia(w http.ResponseWriter, r *http.Request) {
+	getByID(w, r, "SELECT get_media($1);")
+	// id := mux.Vars(r)["id"]
+	// json := db.GetJSON("SELECT get_media($1);", id)
+	// redis.Set(r.RequestURI, json)
+	// fmt.Fprint(w, json)
+}
+
+// GetAnswers возвращает ответы к посту по его id
+func GetAnswers(w http.ResponseWriter, r *http.Request) {
+	getByID(w, r, "SELECT get_answers($1);")
+	// id := mux.Vars(r)["id"]
+	// json := db.GetJSON("SELECT get_answers($1);", id)
+	// redis.Set(r.RequestURI, json)
+	// fmt.Fprint(w, json)
+}
+
+// GetPosts возвращает посты трансляции по её id
+func GetPosts(w http.ResponseWriter, r *http.Request) {
+	getByID(w, r, "SELECT get_posts($1);")
+	// id := mux.Vars(r)["id"]
+	// json := db.GetJSON("SELECT get_posts($1);", id)
+	// redis.Set(r.RequestURI, json)
+	// fmt.Fprint(w, json)
+}
+
+// GetBroadcast возвращает трасляцию с постами по её id
+func GetBroadcast(w http.ResponseWriter, r *http.Request) {
+	getByID(w, r, "SELECT get_broadcast($1);")
+	// id := mux.Vars(r)["id"]
+	// json := db.GetBroadcastJSON(id)
+	// redis.Set(r.RequestURI, json)
+	// fmt.Fprint(w, json)
+}
+
+// GetBroadcasts Получить список трансляций
+func GetBroadcasts(w http.ResponseWriter, r *http.Request) {
+	json := db.GetJSON("SELECT get_broadcasts();", "")
+	redis.Set(r.RequestURI, json)
+	fmt.Fprint(w, json)
+}
+
+// GetBroadcastList Получить список трансляций. Legacy.
 func GetBroadcastList(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	main := vars["main"]
 	active := vars["active"]
 	num := vars["num"]
 	fmt.Printf("main=%v active=%v num=%v", main, active, num)
-}
-
-// GetBroadcast возвращает трасляцию с ее постами
-func GetBroadcast(w http.ResponseWriter, r *http.Request) {
-	id := mux.Vars(r)["id"]
-	json := db.GetBroadcastJSON(id)
-	redis.Set(r.RequestURI, json)
-	fmt.Fprint(w, json)
-}
-
-func toJSON(o interface{}) string {
-	bytes, _ := json.Marshal(o)
-	return string(bytes)
-}
-
-func toYAML(o interface{}) string {
-	bytes, _ := yaml.Marshal(o)
-	return string(bytes)
 }

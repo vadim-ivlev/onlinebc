@@ -111,4 +111,9 @@ Postgre доступен на localhost:5432.
 
 -------------------------------
 
-TODO: add golang container to docker-compose, remote debug, GetBroadcastList, show routes 
+TODO: add golang container to docker-compose, remote debug, 
+
+- GetBroadcastList,
+- dump with ----inserts or --column-inserts (for go)
+- reformat sql functions
+- GetBroadcasts
