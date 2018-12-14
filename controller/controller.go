@@ -13,17 +13,18 @@ import (
 
 // Param - параметр запроса ?name=value&...
 type Param struct {
-	Name  string
-	Value string
+	Comment string
+	Name    string
+	Value   string
 }
 
 // Route - маршрут.
 type Route struct {
-	Path        string
-	Example     string
-	Func        func(w http.ResponseWriter, r *http.Request) `json:"-" yaml:"-"`
-	Params      []Param                                      `json:",omitempty" yaml:",omitempty"`
-	Description string
+	Comment string
+	Path    string
+	Example string
+	Func    func(w http.ResponseWriter, r *http.Request) `json:"-" yaml:"-"`
+	Params  []Param                                      `json:",omitempty" yaml:",omitempty"`
 }
 
 // Query строит строку HTTP запроса по параметрам. Применяется в шаблонах документации API.
@@ -34,6 +35,8 @@ func (r Route) Query() string {
 	}
 	return s[0 : len(s)-1]
 }
+
+// ******************************************************************************************************
 
 // Routes содержит инфориацию о маршрутах.  Документация API.
 var Routes []Route
@@ -66,42 +69,26 @@ func getByID(w http.ResponseWriter, r *http.Request, sqlText string) {
 // GetMedia возвращает медиа поста по его id
 func GetMedia(w http.ResponseWriter, r *http.Request) {
 	getByID(w, r, "SELECT get_media($1);")
-	// id := mux.Vars(r)["id"]
-	// json := db.GetJSON("SELECT get_media($1);", id)
-	// redis.Set(r.RequestURI, json)
-	// fmt.Fprint(w, json)
 }
 
 // GetAnswers возвращает ответы к посту по его id
 func GetAnswers(w http.ResponseWriter, r *http.Request) {
 	getByID(w, r, "SELECT get_answers($1);")
-	// id := mux.Vars(r)["id"]
-	// json := db.GetJSON("SELECT get_answers($1);", id)
-	// redis.Set(r.RequestURI, json)
-	// fmt.Fprint(w, json)
 }
 
 // GetPosts возвращает посты трансляции по её id
 func GetPosts(w http.ResponseWriter, r *http.Request) {
 	getByID(w, r, "SELECT get_posts($1);")
-	// id := mux.Vars(r)["id"]
-	// json := db.GetJSON("SELECT get_posts($1);", id)
-	// redis.Set(r.RequestURI, json)
-	// fmt.Fprint(w, json)
 }
 
 // GetBroadcast возвращает трасляцию с постами по её id
 func GetBroadcast(w http.ResponseWriter, r *http.Request) {
 	getByID(w, r, "SELECT get_broadcast($1);")
-	// id := mux.Vars(r)["id"]
-	// json := db.GetBroadcastJSON(id)
-	// redis.Set(r.RequestURI, json)
-	// fmt.Fprint(w, json)
 }
 
 // GetBroadcasts Получить список трансляций
 func GetBroadcasts(w http.ResponseWriter, r *http.Request) {
-	json := db.GetJSON("SELECT get_broadcasts();", "")
+	json := db.GetJSON("SELECT get_broadcasts();")
 	redis.Set(r.RequestURI, json)
 	fmt.Fprint(w, json)
 }
@@ -113,4 +100,7 @@ func GetBroadcastList(w http.ResponseWriter, r *http.Request) {
 	active := vars["active"]
 	num := vars["num"]
 	fmt.Printf("main=%v active=%v num=%v", main, active, num)
+	json := db.GetJSON("SELECT get_broadcasts();")
+	redis.Set(r.RequestURI, json)
+	fmt.Fprint(w, json)
 }

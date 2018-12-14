@@ -14,6 +14,11 @@
             font-family: 'Roboto', sans-serif;
         }
 
+        a {
+            text-decoration: none;
+        }
+
+
         .gr {
             color: slategray;
         }
@@ -22,11 +27,8 @@
             color: orangered;
         }
 
-        .lt {
+        .rgru {
             letter-spacing: -3px;
-            font-size: 150%;
-            /* font-family: 'Open Sans', sans-serif; */
-            /* font-weight: 900; */
         }
 
         h4 {
@@ -34,9 +36,37 @@
 
         }
 
+        .comment::first-letter {
+            text-transform: uppercase;
+            color: orangered;
+            font-size: 140%;
+            vertical-align: middle;
+            font-weight: bold;
+        }
+
+        .params {
+            margin-left: 70px;
+        }
+
+        .param-name {
+            font-weight: bold;
+            min-width: 70px;
+            display: inline-block;
+        }
+
+        .param-comment {
+            color: slategray
+        }
+
+        .sss {
+            min-width: 70px;
+            display: inline-block;
+        }
+
         .spec {
             color: slategray;
             margin-left: 70px;
+
         }
 
         .example {
@@ -44,32 +74,41 @@
             margin-left: 70px;
         }
 
-        a {
-            text-decoration: none;
+        .gitlab-logo {
+            vertical-align: middle;
+            transform: scale(1.3, 1.3) rotate(-20deg);
         }
     </style>
-    <!-- <script src="main.js"></script> -->
 </head>
 
 <body>
-    <div>
-        <!-- <img src="//cdnimg.rg.ru/res/images/media/logo/rg-main2x.png" style="width:110px;"> -->
-    </div>
-    <h2>
-    </h2>
-    <h3>
-        <span class="lt">
+    <h1>
+        <span class="rgru">
             <span class="gr">RG</span><span class="or">RU</span>
         </span>
-    </h3>
-    <h4>Onlinebc API </h4>
+    </h1>
+    <h4 class="gr">
+        API Онлайн трансляций для фронтэнда
+    </h4>
     <hr>
     <ul>
         {{range .}}
         <li>
-            <div>{{.Description}}</div>
-            <div class="spec">{{.Query}}</div>
-            <div class="example">example: <a target="blank" href="{{.Example}}">{{.Example}}</a></div>
+            <div class="comment">{{.Comment}}</div>
+            {{if .Params}}
+            <div class="params">
+                <div>Параметры HTTP запроса:</div>
+                {{range .Params }}
+                <ul>
+                    <li>
+                        <span class="param-name">{{.Name}}</span>-&nbsp;&nbsp;<span class="param-comment">{{.Comment}}</span>
+                    </li>
+                </ul>
+                {{end}}
+            </div>
+            {{end}}
+            <div class="spec"><span class="sss">URI:</span>{{.Query}}</div>
+            <div class="example"><span class="sss">Пример:</span><a target="blank" href="{{.Example}}">{{.Example}}</a></div>
             <br>
         </li>
         {{end}}
@@ -78,7 +117,7 @@
     <div>
         <a target="_blank" href="https://git.rgwork.ru/web/onlinebc/tree/master">
 
-            <svg width="24" height="24" class="tanuki-logo" viewBox="0 0 36 36" style="vertical-align: text-top;">
+            <svg width="24" height="24" class="gitlab-logo" viewBox="0 0 36 36">
                 <path class="tanuki-shape tanuki-left-ear" fill="#e24329" d="M2 14l9.38 9v-9l-4-12.28c-.205-.632-1.176-.632-1.38 0z"></path>
                 <path class="tanuki-shape tanuki-right-ear" fill="#e24329" d="M34 14l-9.38 9v-9l4-12.28c.205-.632 1.176-.632 1.38 0z"></path>
                 <path class="tanuki-shape tanuki-nose" fill="#e24329" d="M18,34.38 3,14 33,14 Z"></path>

@@ -6,32 +6,23 @@ import (
 	_ "github.com/lib/pq"
 )
 
-// GetBroadcastJSON возвращает  трансляцию с идентификатором id в JSON формате.
-// func GetBroadcastJSON(id string) string {
-// 	return GetJSON("SELECT get_broadcast($1);", id)
-// }
-
 // GetJSON возвращает JSON результатов запроса заданного sqlText, с параметром id.
-func GetJSON(sqlText string, id string) string {
-	db, err := sql.Open("postgres", connectStr)
+func GetJSON(sqlText string, args ...interface{}) string {
+	conn, err := sql.Open("postgres", connectStr)
 	panicIf(err)
-	defer db.Close()
+	defer conn.Close()
 	var json string
-	if id == "" {
-		err = db.QueryRow(sqlText).Scan(&json)
-	} else {
-		err = db.QueryRow(sqlText, id).Scan(&json)
-	}
+	err = conn.QueryRow(sqlText, args...).Scan(&json)
 	printIf(err)
 	return json
 }
 
 // ExequteSQL executes a query defined in sqlText parameter.
 func ExequteSQL(sqlText string) error {
-	db, err := sql.Open("postgres", connectStr)
+	conn, err := sql.Open("postgres", connectStr)
 	panicIf(err)
-	defer db.Close()
-	_, err1 := db.Exec(sqlText)
+	defer conn.Close()
+	_, err1 := conn.Exec(sqlText)
 	printIf(err1)
 	return err1
 }

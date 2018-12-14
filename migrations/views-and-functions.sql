@@ -63,7 +63,7 @@ $function$
 ;
 
 
--- get_broadcast - гланая функция вызываемая из кода приложения.
+-- get_broadcast - гланая функция.
 -- Преобразует плоские таблицы базы данных в JSON
 -- с многоуровненвой иерархической структурой
 
@@ -74,7 +74,6 @@ AS $function$
 BEGIN   
     RETURN
     (
-        -- select row_to_json(t) from
         select array_to_json(array_agg(row_to_json( t, false )),true) from
         ( select *, get_posts(id) as posts  from broadcast where id = idd ) t
     );

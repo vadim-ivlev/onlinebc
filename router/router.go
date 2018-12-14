@@ -12,19 +12,21 @@ import (
 // InitRoutesArray инициализирует массив маршрутов.
 func InitRoutesArray() {
 	c.Routes = []c.Route{
-		{"/", "/", c.LandingPage, nil, "Стартовая страница"},
-		{"/routes", "/routes", c.GetRoutes, nil, "JSON  маршрутов.  Документация API."},
-		{"/broadcasts", "/broadcasts", c.GetBroadcasts, nil, "Список трансляций"},
-		{"/broadcast/{id}", "/broadcast/354", c.GetBroadcast, nil, "Трасляция с постами"},
-		{"/posts/{id}", "/posts/354", c.GetPosts, nil, "посты трансляции по её id"},
-		{"/answers/{id}", "/answers/23932", c.GetAnswers, nil, "ответы к посту по его id"},
-		{"/media/{id}", "/media/23932", c.GetMedia, nil, "медиа поста по его id"},
-		{"/api/online.php", "/api/online.php?id=354", c.GetBroadcast, []c.Param{{"id", "{id}"}}, "Трасляция с постами. Legacy"},
-		{"/api/", "/api/?main=0&active=0&num=3", c.GetBroadcastList, []c.Param{
-			{"main", "{main}"},
-			{"active", "{active}"},
-			{"num", "{num}"},
-		}, "Список трансляций"},
+		{"Стартовая страница", "/", "/", c.LandingPage, nil},
+		{"JSON  маршрутов.  Документация API.", "/routes", "/routes", c.GetRoutes, nil},
+		{"Список трансляций", "/broadcasts", "/broadcasts", c.GetBroadcasts, nil},
+		{"Трасляция с идентификатором id и ее постами", "/broadcast/{id}", "/broadcast/354", c.GetBroadcast, nil},
+		{"Посты трансляции с идентификатором id", "/posts/{id}", "/posts/354", c.GetPosts, nil},
+		{"Ответы к посту с идентификатором id", "/answers/{id}", "/answers/23932", c.GetAnswers, nil},
+		{"Медиа поста с идентификатором id", "/media/{id}", "/media/23932", c.GetMedia, nil},
+		{"Трасляция с идентификатором id и ее постами. Legacy", "/api/online.php", "/api/online.php?id=354", c.GetBroadcast, []c.Param{
+			{"Идентификатор трансляции", "id", "{id}"},
+		}},
+		{"Список трансляций.Legacy", "/api/", "/api/?main=0&active=0&num=3", c.GetBroadcastList, []c.Param{
+			{"Основная {0|1}", "main", "{main}"},
+			{"Активность {0|1}", "active", "{active}"},
+			{"Номер", "num", "{num}"},
+		}},
 	}
 }
 
