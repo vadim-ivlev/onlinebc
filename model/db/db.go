@@ -6,7 +6,7 @@ import (
 	_ "github.com/lib/pq"
 )
 
-// GetJSON возвращает JSON результатов запроса заданного sqlText, с параметром id.
+// GetJSON возвращает JSON результатов запроса заданного sqlText, с возможными параметрами.
 func GetJSON(sqlText string, args ...interface{}) string {
 	conn, err := sql.Open("postgres", connectStr)
 	panicIf(err)
@@ -17,7 +17,7 @@ func GetJSON(sqlText string, args ...interface{}) string {
 	return json
 }
 
-// ExequteSQL executes a query defined in sqlText parameter.
+// ExequteSQL исполняет запрос заданный строкой sqlText.
 func ExequteSQL(sqlText string) error {
 	conn, err := sql.Open("postgres", connectStr)
 	panicIf(err)
