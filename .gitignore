@@ -1,0 +1,6 @@
+.vscode
+.idea
+pgdata
+push.sh
+build
+
