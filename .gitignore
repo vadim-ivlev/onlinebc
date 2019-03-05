@@ -1,7 +1,8 @@
 .vscode
 .idea
+push.sh
 pgdata
 uploads
-push.sh
+
 
 
