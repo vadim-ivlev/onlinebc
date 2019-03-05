@@ -1,7 +1,7 @@
 .vscode
 .idea
 pgdata
+uploads
 push.sh
-#build
 
 

@@ -23,6 +23,16 @@ services:
       #     - "6389:6379"
       restart: always
 
+  # сервер для загрузки изображений по ssh
+  imgserver:
+    image: sickp/alpine-sshd
+    container_name: onlinebc-imgserver
+    volumes:
+     - ./uploads:/var/www/onlinebc/uploads
+    # ports:
+    #  - "222:22"
+    restart: always
+
   runner:
     image: rgru/onlinebc_admin
     container_name: onlinebc-runner
@@ -34,9 +44,11 @@ services:
     depends_on:
       - db
       - redis
+      - imgserver
     links:
       - db
       - redis
+      - imgserver
 
 
 
